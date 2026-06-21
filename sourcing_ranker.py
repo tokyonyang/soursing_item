@@ -365,6 +365,305 @@ def is_too_broad_or_risky_discovery(keyword: str) -> bool:
     return any(x.lower() in k for x in risky)
 
 
+
+
+# -----------------------------
+# 상품 단위 후보 발굴
+# -----------------------------
+
+PRODUCT_INTENT_WORDS = [
+    "운동화", "러닝화", "스니커즈", "신발", "샌들", "슬리퍼", "부츠", "로퍼", "풋살화",
+    "가방", "백팩", "숄더백", "토트백", "미니백", "크로스백", "파우치", "지갑", "카드지갑",
+    "케이스", "폰케이스", "아이폰", "갤럭시", "맥세이프", "카드홀더",
+    "양산", "우산", "우양산", "장우산", "암막양산",
+    "텀블러", "보온병", "물병", "도시락", "머그", "컵", "식기",
+    "수납", "랙", "트레이", "정리함", "후크", "스탠드", "홀더",
+    "체어", "의자", "테이블", "캠핑", "랜턴", "머그컵",
+    "키링", "키홀더", "인형", "피규어", "토이", "굿즈", "스티커",
+    "볼캡", "캡", "모자", "비니", "장갑", "머플러", "양말", "벨트",
+    "티셔츠", "반팔", "후드", "후드집업", "맨투맨", "가디건", "재킷", "자켓", "바지", "팬츠",
+    "시계", "선글라스", "목걸이", "귀걸이", "팔찌",
+    "샤프", "볼펜", "다이어리", "노트", "필통",
+]
+
+MODEL_SERIES_HINTS = [
+    "에어맥스", "에어포스", "덩크", "조던", "코르테즈", "페가수스",
+    "젤", "카야노", "님버스", "1130", "2160", "킨세이",
+    "990", "992", "993", "2002", "530", "574", "860",
+    "보스턴", "아리조나", "타스만", "클래식", "르플리아쥬", "플리아쥬",
+    "보스턴백", "벨트백", "에브리웨어", "tower", "타워",
+]
+
+PRODUCT_STOPWORDS = [
+    "정품", "공식", "해외직구", "일본직구", "일본", "구매대행", "무료배송",
+    "당일", "배송", "세일", "할인", "추천", "인기", "신상", "남성", "여성", "공용",
+    "키즈", "주니어", "병행수입", "특가", "최저가", "국내", "해외", "브랜드",
+]
+
+
+def compact_keyword(text: str) -> str:
+    return re.sub(r"\s+", "", clean_text(text).lower())
+
+
+def looks_like_product_keyword(keyword: str, brand: str = "", category: str = "") -> bool:
+    """
+    브랜드명 단독이 아니라 '브랜드 + 품목/모델/시리즈' 형태인지 판정한다.
+    예: 나이키(False) / 나이키 운동화(True) / 나이키 에어맥스(True)
+    """
+    k = clean_text(keyword)
+    if not k:
+        return False
+    if is_too_broad_or_risky_discovery(k):
+        return False
+
+    kn = compact_keyword(k)
+    bn = compact_keyword(brand)
+    if bn and kn == bn:
+        return False
+
+    # 너무 일반적인 단어만 있는 경우 제외
+    if len(kn) <= 2:
+        return False
+
+    product_hit = any(compact_keyword(w) in kn for w in PRODUCT_INTENT_WORDS)
+    model_hit = any(compact_keyword(w) in kn for w in MODEL_SERIES_HINTS)
+    category_hit = bool(category) and any(compact_keyword(w) in kn for w in re.split(r"[,/ >]+", clean_text(category)) if len(compact_keyword(w)) >= 2)
+
+    # 브랜드가 포함되어 있고, 브랜드 외에 의미 있는 토큰이 붙으면 상품 키워드로 인정
+    if bn and bn in kn:
+        remainder = kn.replace(bn, "", 1)
+        if len(remainder) >= 2 and (product_hit or model_hit or category_hit or re.search(r"\d{2,}", remainder)):
+            return True
+
+    # 브랜드가 빠졌더라도 품목/모델 조합이면 후보로 인정. 단, 너무 광범위한 단일 품목은 제외될 수 있음.
+    if (product_hit and model_hit) or (product_hit and re.search(r"\d{2,}", kn)):
+        return True
+
+    # 공백 기준 2토큰 이상이고 품목어가 있으면 후보 인정
+    tokens = [t for t in re.split(r"\s+", k) if t and t not in PRODUCT_STOPWORDS]
+    if len(tokens) >= 2 and product_hit:
+        return True
+
+    return False
+
+
+def product_group_from_keyword(keyword: str, category: str = "") -> str:
+    k = compact_keyword(keyword + " " + category)
+    groups = [
+        ("휴대폰/디지털소품", ["케이스", "폰케이스", "아이폰", "갤럭시", "맥세이프", "카드홀더"]),
+        ("신발", ["운동화", "러닝화", "스니커즈", "신발", "샌들", "슬리퍼", "부츠", "로퍼", "풋살화"]),
+        ("가방/지갑", ["가방", "백팩", "숄더백", "토트백", "미니백", "크로스백", "파우치", "지갑", "카드지갑"]),
+        ("우산/양산", ["양산", "우산", "우양산", "장우산", "암막양산"]),
+        ("주방/생활", ["텀블러", "보온병", "도시락", "머그", "수납", "랙", "정리함", "후크", "스탠드", "홀더"]),
+        ("캠핑/아웃도어소품", ["체어", "의자", "테이블", "캠핑", "랜턴", "머그컵"]),
+        ("캐릭터/굿즈", ["키링", "키홀더", "인형", "피규어", "토이", "굿즈", "스티커"]),
+        ("패션소품/의류", ["볼캡", "캡", "모자", "비니", "장갑", "머플러", "양말", "티셔츠", "반팔", "후드", "가디건", "재킷", "바지", "팬츠"]),
+        ("문구", ["샤프", "볼펜", "다이어리", "노트", "필통"]),
+    ]
+    for group, words in groups:
+        if any(compact_keyword(w) in k for w in words):
+            return group
+    return clean_text(category) or "미분류"
+
+
+def clean_shopping_title(title: str) -> str:
+    text = clean_text(title)
+    text = re.sub(r"\[[^\]]{0,30}\]|\([^\)]{0,30}\)", " ", text)
+    text = re.sub(r"(?i)\b(무료배송|정품|공식|해외직구|일본직구|구매대행|당일발송|특가|세일)\b", " ", text)
+    text = re.sub(r"[^0-9A-Za-z가-힣\-\+\s]", " ", text)
+    return clean_text(text)
+
+
+def extract_product_keywords_from_title(title: str, brand: str, category: str = "", max_keywords: int = 3) -> List[str]:
+    """
+    네이버 쇼핑 상위 상품명에서 '브랜드 + 상품/모델' 후보를 간단 추출한다.
+    추출 후보는 검색광고/쇼핑 API로 다시 검증되므로 보수적으로 적게 뽑는다.
+    """
+    text = clean_shopping_title(title)
+    if not text:
+        return []
+    tokens = [t for t in re.split(r"\s+", text) if t and t not in PRODUCT_STOPWORDS]
+    brand_norm = compact_keyword(brand)
+    out: List[str] = []
+
+    # 1) 브랜드 토큰 주변의 2~4그램
+    for i in range(len(tokens)):
+        token_norm = compact_keyword(tokens[i])
+        if brand_norm and (brand_norm in token_norm or token_norm in brand_norm):
+            for n in [2, 3, 4]:
+                cand = " ".join(tokens[i:i+n])
+                if looks_like_product_keyword(cand, brand, category):
+                    out.append(cand)
+            break
+
+    # 2) 브랜드가 제목에 명확히 없으면 품목/모델 단서가 있는 2~3그램
+    for i in range(len(tokens)):
+        for n in [2, 3]:
+            cand = " ".join(tokens[i:i+n])
+            if looks_like_product_keyword(cand, brand, category):
+                out.append(cand)
+
+    # 중복 제거
+    seen = set()
+    uniq = []
+    for cand in out:
+        cn = compact_keyword(cand)
+        if cn and cn not in seen and len(cand) <= 40:
+            seen.add(cn)
+            uniq.append(cand)
+        if len(uniq) >= max_keywords:
+            break
+    return uniq
+
+
+def discover_product_keywords(
+    seed_df: pd.DataFrame,
+    searchad_client: Optional[NaverSearchAdClient],
+    open_client: Optional[NaverOpenApiClient] = None,
+    seed_limit: int = 60,
+    per_brand: int = 8,
+    min_volume: int = 1000,
+    max_candidates: int = 200,
+    sleep_sec: float = 0.35,
+    use_shopping_titles: bool = True,
+    shopping_title_display: int = 30,
+    exclude_risky: bool = True,
+) -> pd.DataFrame:
+    """
+    브랜드 단위가 아니라 '브랜드 + 모델/품목' 단위 후보를 자동 발굴한다.
+    주요 소스:
+      1) 검색광고 keywordstool 연관키워드: 검색량이 있는 상품 키워드
+      2) 네이버 쇼핑 상위 상품명: 실제 노출/판매 중인 상품명에서 모델 후보 추출
+    """
+    if searchad_client is None:
+        print("[WARN] 검색광고 API 키가 없어 상품 단위 키워드 발굴을 건너뜁니다.", file=sys.stderr)
+        return pd.DataFrame(columns=[
+            "brand", "category", "keyword_series", "base_volume",
+            "naver_products", "naver_overseas_products",
+            "source_type", "discovery_seed", "product_group", "product_source"
+        ])
+
+    work = seed_df.copy()
+    work["_base_volume_num"] = pd.to_numeric(work.get("base_volume", 0), errors="coerce").fillna(0)
+    work = work.sort_values("_base_volume_num", ascending=False)
+    if seed_limit and seed_limit > 0:
+        work = work.head(seed_limit)
+
+    existing = set()
+    for _, r in seed_df.iterrows():
+        existing.add(keyword_norm(pick_primary_keyword(r)))
+        existing.add(keyword_norm(r.get("brand", "")))
+
+    discovered_by_kw: Dict[str, Dict[str, Any]] = {}
+
+    def add_candidate(keyword: str, brand: str, category: str, volume: int, seed: str, source: str) -> None:
+        keyword = api_safe_keyword(keyword, brand, max_chars=40, max_bytes=100)
+        if exclude_risky and is_too_broad_or_risky_discovery(keyword):
+            return
+        if not looks_like_product_keyword(keyword, brand, category):
+            return
+        if volume < min_volume:
+            return
+        kn = keyword_norm(keyword)
+        if not kn or kn in existing:
+            return
+        if kn in discovered_by_kw:
+            old = discovered_by_kw[kn]
+            if volume > to_int(old.get("base_volume")):
+                old["base_volume"] = volume
+            return
+        discovered_by_kw[kn] = {
+            "brand": clean_text(brand),
+            "category": product_group_from_keyword(keyword, category),
+            "keyword_series": clean_text(keyword),
+            "base_volume": volume,
+            "naver_products": 0,
+            "naver_overseas_products": 0,
+            "source_type": "product_discovered",
+            "discovery_seed": clean_text(seed),
+            "product_group": product_group_from_keyword(keyword, category),
+            "product_source": source,
+        }
+
+    for _, row in work.iterrows():
+        if len(discovered_by_kw) >= max_candidates:
+            break
+
+        brand = clean_text(row.get("brand", ""))
+        category = clean_text(row.get("category", ""))
+        seed_keyword = api_safe_keyword(pick_primary_keyword(row), brand)
+        if not seed_keyword:
+            continue
+
+        print(f"[PRODUCT DISCOVER {len(discovered_by_kw)}/{max_candidates}] {brand} -> {seed_keyword}", flush=True)
+
+        # 1) 검색광고 연관키워드에서 상품/모델 단위 키워드 발굴
+        try:
+            resp = searchad_client.keyword_tool(seed_keyword)
+            items = searchad_keyword_items(resp)
+            ranked_items = sorted(items, key=keyword_volume_from_item, reverse=True)
+            picked = 0
+            for item in ranked_items:
+                rel = clean_text(item.get("relKeyword", ""))
+                vol = keyword_volume_from_item(item)
+                if vol < min_volume:
+                    continue
+                if looks_like_product_keyword(rel, brand, category):
+                    add_candidate(rel, brand, category, vol, seed_keyword, "searchad_related")
+                    picked += 1
+                if picked >= per_brand or len(discovered_by_kw) >= max_candidates:
+                    break
+        except Exception as e:
+            print(f"[WARN] product searchad discovery failed: {brand}/{seed_keyword}: {str(e)[:120]}", file=sys.stderr)
+
+        time.sleep(sleep_sec)
+
+        # 2) 네이버 쇼핑 상위 상품명에서 후보 추출 후 검색광고 검색량으로 검증
+        if use_shopping_titles and open_client is not None and len(discovered_by_kw) < max_candidates:
+            try:
+                shop = open_client.shopping_search(seed_keyword, display=shopping_title_display, sort="sim")
+                title_candidates: List[str] = []
+                for item in shop.get("items", []) or []:
+                    title_candidates.extend(extract_product_keywords_from_title(item.get("title", ""), brand, category, max_keywords=2))
+
+                # 후보가 너무 많아지지 않도록 순서 유지 중복제거
+                seen_titles = set()
+                title_candidates_unique = []
+                for cand in title_candidates:
+                    cn = compact_keyword(cand)
+                    if cn not in seen_titles:
+                        seen_titles.add(cn)
+                        title_candidates_unique.append(cand)
+                    if len(title_candidates_unique) >= per_brand * 2:
+                        break
+
+                for cand in title_candidates_unique:
+                    if len(discovered_by_kw) >= max_candidates:
+                        break
+                    try:
+                        vol, source = query_keyword_volume(searchad_client, cand, fallback=0, sleep_sec=sleep_sec)
+                    except Exception:
+                        vol, source = 0, "searchad_error"
+                    if vol >= min_volume:
+                        add_candidate(cand, brand, category, vol, seed_keyword, "shopping_title")
+            except Exception as e:
+                print(f"[WARN] shopping-title discovery failed: {brand}/{seed_keyword}: {str(e)[:120]}", file=sys.stderr)
+
+        time.sleep(sleep_sec)
+
+    if not discovered_by_kw:
+        return pd.DataFrame(columns=[
+            "brand", "category", "keyword_series", "base_volume",
+            "naver_products", "naver_overseas_products",
+            "source_type", "discovery_seed", "product_group", "product_source"
+        ])
+
+    out = pd.DataFrame(list(discovered_by_kw.values()))
+    out = out.sort_values("base_volume", ascending=False).head(max_candidates).reset_index(drop=True)
+    print(f"[INFO] 상품 단위 신규 후보 {len(out)}개 발굴 완료", flush=True)
+    return out
+
+
 def discover_related_keywords(
     seed_df: pd.DataFrame,
     client: Optional[NaverSearchAdClient],
@@ -723,7 +1022,7 @@ def score_dataframe(df: pd.DataFrame, reports_dir: Path) -> pd.DataFrame:
 
     cols = [
         "recommendation", "final_score",
-        "source_type", "discovery_seed",
+        "source_type", "discovery_seed", "product_group", "product_source",
         "brand", "category", "keyword",
         "search_volume", "prev_search_volume", "search_volume_growth_pct",
         "total_products", "overseas_products", "overseas_ratio",
@@ -746,14 +1045,17 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
     out = reports_dir / f"sourcing_rank_{today}.xlsx"
 
     top_df = df.head(top_n).copy()
-    discovered_count = int((df.get("source_type", pd.Series(dtype=str)).astype(str) == "discovered").sum()) if "source_type" in df.columns else 0
-    seed_count = int((df.get("source_type", pd.Series(dtype=str)).astype(str) == "seed").sum()) if "source_type" in df.columns else len(df)
+    source_series = df.get("source_type", pd.Series(dtype=str)).astype(str) if "source_type" in df.columns else pd.Series(dtype=str)
+    discovered_count = int((source_series == "discovered").sum()) if len(source_series) else 0
+    product_discovered_count = int((source_series == "product_discovered").sum()) if len(source_series) else 0
+    seed_count = int((source_series == "seed").sum()) if len(source_series) else len(df)
     summary = pd.DataFrame({
         "항목": [
             "생성일",
             "전체 후보 수",
             "기존 후보 수",
-            "신규 발굴 후보 수",
+            "신규 연관키워드 후보 수",
+            "상품 단위 발굴 후보 수",
             f"TOP {top_n} 평균 점수",
             "우선소싱 수",
             "테스트 수",
@@ -765,6 +1067,7 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
             len(df),
             seed_count,
             discovered_count,
+            product_discovered_count,
             round(float(top_df["final_score"].mean()), 1) if len(top_df) else 0,
             int((df["recommendation"].astype(str) == "우선소싱").sum()),
             int((df["recommendation"].astype(str) == "테스트").sum()),
@@ -779,6 +1082,8 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
         if "source_type" in df.columns:
             new_df = df[df["source_type"].astype(str) == "discovered"].copy()
             new_df.head(top_n).to_excel(writer, index=False, sheet_name="신규발굴_TOP")
+            product_df = df[df["source_type"].astype(str) == "product_discovered"].copy()
+            product_df.head(top_n).to_excel(writer, index=False, sheet_name="상품키워드_TOP")
         df.to_excel(writer, index=False, sheet_name="전체랭킹")
 
         workbook = writer.book
@@ -791,8 +1096,12 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
         fmt_bad = workbook.add_format({"bg_color": "#F4CCCC"})
 
         report_sheets = ["요약", f"TOP_{top_n}", "전체랭킹"]
+        insert_at = 2
         if "신규발굴_TOP" in writer.sheets:
-            report_sheets.insert(2, "신규발굴_TOP")
+            report_sheets.insert(insert_at, "신규발굴_TOP")
+            insert_at += 1
+        if "상품키워드_TOP" in writer.sheets:
+            report_sheets.insert(insert_at, "상품키워드_TOP")
         for sheet_name in report_sheets:
             ws = writer.sheets[sheet_name]
             ws.freeze_panes(1, 0)
@@ -829,6 +1138,9 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
         discovered = df[df["source_type"].astype(str) == "discovered"].copy()
         if len(discovered):
             discovered.to_csv(reports_dir / f"discovered_keywords_{today}.csv", index=False, encoding="utf-8-sig")
+        product_discovered = df[df["source_type"].astype(str) == "product_discovered"].copy()
+        if len(product_discovered):
+            product_discovered.to_csv(reports_dir / f"product_keywords_{today}.csv", index=False, encoding="utf-8-sig")
     return out
 
 
@@ -890,6 +1202,36 @@ def run(args: argparse.Namespace) -> Path:
             df = df.sort_values(["_priority"]).drop_duplicates(subset=["_brand_norm", "_kw_norm"])
             df = df.drop(columns=["_priority", "_kw_norm", "_brand_norm"]).reset_index(drop=True)
 
+    if args.discover_products:
+        product_df = discover_product_keywords(
+            df,
+            searchad_client,
+            open_client=open_client,
+            seed_limit=args.product_seed_limit,
+            per_brand=args.product_keywords_per_brand,
+            min_volume=args.min_product_volume,
+            max_candidates=args.max_product_candidates,
+            sleep_sec=args.sleep,
+            use_shopping_titles=not args.no_shopping_title_discovery,
+            shopping_title_display=args.shopping_title_display,
+            exclude_risky=not args.include_risky_discovery,
+        )
+        if len(product_df):
+            df = pd.concat([df, product_df], ignore_index=True)
+
+    # 전체 중복 제거: 기존 seed를 우선 보존하고, 상품 단위 발굴 후보도 같은 키워드는 1개만 유지
+    if "source_type" in df.columns:
+        df["_priority"] = df["source_type"].map({"seed": 0, "discovered": 1, "product_discovered": 2}).fillna(9)
+        df["_kw_norm"] = df.apply(lambda r: keyword_norm(pick_primary_keyword(r)), axis=1)
+        df["_brand_norm"] = df["brand"].map(keyword_norm)
+        df = df.sort_values(["_priority"]).drop_duplicates(subset=["_brand_norm", "_kw_norm"])
+        df = df.drop(columns=["_priority", "_kw_norm", "_brand_norm"]).reset_index(drop=True)
+
+    if args.products_only:
+        df = df[df["source_type"].astype(str) == "product_discovered"].copy().reset_index(drop=True)
+        if len(df) == 0:
+            raise RuntimeError("products-only 모드인데 상품 단위 후보가 없습니다. 검색광고 API 키와 discovery 옵션을 확인하세요.")
+
     rows: List[Dict[str, Any]] = []
     for idx, row in df.iterrows():
         brand = clean_text(row["brand"])
@@ -924,6 +1266,8 @@ def run(args: argparse.Namespace) -> Path:
         rows.append({
             "source_type": clean_text(row.get("source_type", "seed")) or "seed",
             "discovery_seed": clean_text(row.get("discovery_seed", "")),
+            "product_group": clean_text(row.get("product_group", "")),
+            "product_source": clean_text(row.get("product_source", "")),
             "brand": brand,
             "category": clean_text(row.get("category", "")),
             "keyword": api_keyword,
@@ -959,6 +1303,14 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--discovery-seed-limit", type=int, default=40, help="신규 발굴에 사용할 상위 시드 개수")
     p.add_argument("--max-discovered", type=int, default=100, help="최대 신규 발굴 후보 수")
     p.add_argument("--include-risky-discovery", action="store_true", help="규제/리스크 키워드도 신규 후보에 포함")
+    p.add_argument("--discover-products", action="store_true", help="브랜드가 아니라 제품/모델 단위 키워드를 자동 발굴")
+    p.add_argument("--products-only", action="store_true", help="최종 랭킹에서 브랜드 seed를 제외하고 상품 단위 발굴 후보만 출력")
+    p.add_argument("--product-seed-limit", type=int, default=60, help="상품 단위 발굴에 사용할 상위 브랜드/시드 개수")
+    p.add_argument("--product-keywords-per-brand", type=int, default=8, help="브랜드당 발굴할 상품 키워드 최대 개수")
+    p.add_argument("--min-product-volume", type=int, default=1000, help="상품 단위 후보 최소 월간검색수")
+    p.add_argument("--max-product-candidates", type=int, default=200, help="최대 상품 단위 신규 후보 수")
+    p.add_argument("--no-shopping-title-discovery", action="store_true", help="네이버 쇼핑 상위 상품명 기반 상품 후보 추출을 끔")
+    p.add_argument("--shopping-title-display", type=int, default=30, help="상품명 후보 추출에 사용할 쇼핑 상위 노출 개수")
     return p.parse_args(argv)
 
 

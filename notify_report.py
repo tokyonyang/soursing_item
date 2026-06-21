@@ -42,7 +42,7 @@ def find_latest_report(reports_dir: str = "reports") -> Path:
 
 def pick_sheet(path: Path) -> str:
     xls = pd.ExcelFile(path)
-    for name in ["TOP_80", "TOP", "전체랭킹", "요약"]:
+    for name in ["상품키워드_TOP", "TOP_100", "TOP_80", "TOP", "전체랭킹", "요약"]:
         if name in xls.sheet_names:
             return name
     return xls.sheet_names[0]
@@ -54,7 +54,7 @@ def read_top_rows(path: Path, top_n: int = 15) -> pd.DataFrame:
     # 보기 좋은 컬럼만 남기기. 컬럼명이 다소 바뀌어도 최대한 대응.
     preferred = [
         "rank", "순위", "recommendation", "추천등급", "sourcing_score", "최종점수", "final_score",
-        "source_type", "discovery_seed",
+        "source_type", "discovery_seed", "product_group", "product_source",
         "brand", "브랜드명", "primary_keyword", "대표키워드", "keyword",
         "category", "대표카테고리", "search_volume", "검색량",
         "volume_growth_pct", "상승률", "search_volume_growth_pct",
@@ -85,7 +85,7 @@ def df_to_compact_text(df: pd.DataFrame, top_n: int = 10) -> str:
         overseas = val("naver_overseas_products", "네이버해외상품수", "overseas_products", default="")
         risk = val("risk_flags", "리스크", default="")
         source_type = val("source_type", default="")
-        source_txt = "신규발굴" if str(source_type) == "discovered" else "기존"
+        source_txt = "상품발굴" if str(source_type) == "product_discovered" else ("신규발굴" if str(source_type) == "discovered" else "기존")
         score_txt = f" / 점수 {float(score):.1f}" if isinstance(score, (int, float)) else (f" / 점수 {score}" if score != "" else "")
         volume_txt = f" / 검색량 {int(volume):,}" if isinstance(volume, (int, float)) else (f" / 검색량 {volume}" if volume != "" else "")
         overseas_txt = f" / 해외상품 {int(overseas):,}" if isinstance(overseas, (int, float)) else (f" / 해외상품 {overseas}" if overseas != "" else "")
