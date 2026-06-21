@@ -14,7 +14,7 @@ permissions:
 jobs:
   scheduled-sourcing-rank:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -40,7 +40,17 @@ jobs:
           NAVER_SEARCHAD_API_KEY: ${{ secrets.NAVER_SEARCHAD_API_KEY }}
           NAVER_SEARCHAD_SECRET_KEY: ${{ secrets.NAVER_SEARCHAD_SECRET_KEY }}
           NAVER_SEARCHAD_CUSTOMER_ID: ${{ secrets.NAVER_SEARCHAD_CUSTOMER_ID }}
-        run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --top 100 --discover-products --products-only --product-seed-limit 60 --product-keywords-per-brand 8 --min-product-volume 1000 --max-product-candidates 200
+        run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --limit 20 --top 30 --discover-products --products-only --product-seed-limit 10 --product-keywords-per-brand 5 --min-product-volume 500 --max-product-candidates 50
+
+      - name: Check generated reports
+        if: always()
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files:"
+          ls -la
+          echo "Reports:"
+          ls -la reports || echo "reports folder not found"
 
       - name: Prepare dashboard data
         if: success()
@@ -55,19 +65,17 @@ jobs:
           git commit -m "Update dashboard data" || echo "No dashboard data changes"
           git push
 
-      - name: Notify report
-        if: always()
+      -       - name: Notify report
+        if: success() && hashFiles('reports/*.xlsx') != ''
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.5-flash' }}
 
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SEND_TELEGRAM_IMAGE: "true"
 
-          # Streamlit 배포 URL을 GitHub Variables에 DASHBOARD_URL로 추가하면
-          # 텔레그램 메시지와 이미지 캡션에 링크가 함께 들어갑니다.
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+          SEND_TELEGRAM_IMAGE: "true"
 
           REPORT_WEBHOOK_URL: ${{ secrets.REPORT_WEBHOOK_URL }}
 
@@ -79,9 +87,9 @@ jobs:
           REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
           REPORT_EMAIL_SUBJECT: 네이버 해외직구 소싱 자동 리포트
         run: python notify_report.py --top 15 --image-top 10
-
+        
       - name: Upload Excel report
-        if: always()
+        if: hashFiles('reports/*.xlsx') != ''
         uses: actions/upload-artifact@v4
         with:
           name: sourcing-rank-report
