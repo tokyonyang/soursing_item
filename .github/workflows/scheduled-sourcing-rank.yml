@@ -37,7 +37,7 @@ jobs:
           NAVER_SEARCHAD_API_KEY: ${{ secrets.NAVER_SEARCHAD_API_KEY }}
           NAVER_SEARCHAD_SECRET_KEY: ${{ secrets.NAVER_SEARCHAD_SECRET_KEY }}
           NAVER_SEARCHAD_CUSTOMER_ID: ${{ secrets.NAVER_SEARCHAD_CUSTOMER_ID }}
-        run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --top 80
+        run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --limit 20 --top 20 --no-searchad
 
       - name: Notify report
         if: always()
