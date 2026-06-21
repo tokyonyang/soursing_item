@@ -5,6 +5,8 @@ on:
   schedule:
     # 매주 월요일 09:00 KST = 월요일 00:00 UTC
     - cron: "0 0 * * 1"
+    # 매월 1일 09:00 KST = 매월 1일 00:00 UTC
+    - cron: "0 0 1 * *"
 
 permissions:
   contents: write
@@ -12,7 +14,7 @@ permissions:
 jobs:
   scheduled-sourcing-rank:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
@@ -22,6 +24,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Install Korean fonts for Telegram image
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -56,6 +63,11 @@ jobs:
 
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SEND_TELEGRAM_IMAGE: "true"
+
+          # Streamlit 배포 URL을 GitHub Variables에 DASHBOARD_URL로 추가하면
+          # 텔레그램 메시지와 이미지 캡션에 링크가 함께 들어갑니다.
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
 
           REPORT_WEBHOOK_URL: ${{ secrets.REPORT_WEBHOOK_URL }}
 
@@ -66,12 +78,15 @@ jobs:
           REPORT_FROM_EMAIL: ${{ secrets.REPORT_FROM_EMAIL }}
           REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
           REPORT_EMAIL_SUBJECT: 네이버 해외직구 소싱 자동 리포트
-        run: python notify_report.py --top 15
+        run: python notify_report.py --top 15 --image-top 10
 
       - name: Upload Excel report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sourcing-rank-report
-          path: reports/*.xlsx
+          path: |
+            reports/*.xlsx
+            reports/*.csv
+            reports/*.png
           retention-days: 30
