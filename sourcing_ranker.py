@@ -60,6 +60,23 @@ def clean_text(value: Any) -> str:
     return text
 
 
+def clean_keyword_series(value: Any) -> str:
+    """키워드&시리즈 원문은 줄바꿈이 대표키워드 구분자라서 보존한다."""
+    if value is None:
+        return ""
+    text = str(value)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n+", "\n", text)
+    return text.strip()
+
+
+def normalize_col_name(value: Any) -> str:
+    """엑셀 헤더의 줄바꿈/공백 차이를 흡수하기 위한 정규화."""
+    return re.sub(r"\s+", "", str(value or "")).lower()
+
+
 def to_int(value: Any, default: int = 0) -> int:
     if value is None:
         return default
@@ -203,9 +220,11 @@ COLUMN_ALIASES = {
 
 
 def find_col(df: pd.DataFrame, logical: str) -> Optional[str]:
+    normalized_to_original = {normalize_col_name(c): c for c in df.columns}
     for cand in COLUMN_ALIASES[logical]:
-        if cand in df.columns:
-            return cand
+        key = normalize_col_name(cand)
+        if key in normalized_to_original:
+            return normalized_to_original[key]
     return None
 
 
@@ -247,17 +266,35 @@ def load_input(path: Path) -> pd.DataFrame:
     df = df[["brand", "category", "keyword_series", "base_volume", "naver_products", "naver_overseas_products"]].copy()
     df["brand"] = df["brand"].map(clean_text)
     df["category"] = df["category"].map(clean_text)
-    df["keyword_series"] = df["keyword_series"].map(clean_text)
+    # 중요: 키워드&시리즈의 줄바꿈은 대표키워드 추출에 필요하므로 clean_text를 쓰지 않는다.
+    df["keyword_series"] = df["keyword_series"].map(clean_keyword_series)
     df = df[df["brand"] != ""].drop_duplicates(subset=["brand", "keyword_series"])
     return df.reset_index(drop=True)
 
 
 def pick_primary_keyword(row: pd.Series) -> str:
-    raw = clean_text(row.get("keyword_series", "")) or clean_text(row.get("brand", ""))
-    # 파일 안에서 줄바꿈/쉼표로 시리즈 키워드가 여러 개 들어온 경우 첫 번째를 대표로 사용
+    raw = clean_keyword_series(row.get("keyword_series", "")) or clean_text(row.get("brand", ""))
+    brand = clean_text(row.get("brand", ""))
+    # 파일 안에서 줄바꿈/쉼표로 시리즈 키워드가 여러 개 들어온 경우 첫 번째를 대표로 사용.
+    # 이전 버전은 줄바꿈을 먼저 공백으로 바꿔 API query가 너무 길어지는 문제가 있었다.
     parts = re.split(r"[\n\r,;/|]+", raw)
-    parts = [p.strip() for p in parts if p.strip()]
-    return parts[0] if parts else clean_text(row.get("brand", ""))
+    parts = [clean_text(p) for p in parts if clean_text(p)]
+    keyword = parts[0] if parts else brand
+    # 방어 로직: 구분자가 없는 긴 키워드 묶음은 브랜드명으로 축소한다.
+    if len(keyword) > 40 or len(keyword.encode("utf-8")) > 100 or keyword.count(" ") >= 4:
+        keyword = brand
+    return keyword
+
+
+def api_safe_keyword(keyword: str, brand: str = "", max_chars: int = 40, max_bytes: int = 100) -> str:
+    """네이버 API URL 414/검색광고 hintKeywords 400 방지용 검색어 축소."""
+    keyword = clean_text(keyword)
+    brand = clean_text(brand)
+    if not keyword:
+        return brand
+    if len(keyword) > max_chars or len(keyword.encode("utf-8")) > max_bytes or keyword.count(" ") >= 4:
+        return brand or keyword[:max_chars]
+    return keyword
 
 
 # -----------------------------
@@ -325,6 +362,8 @@ def query_shopping_metrics(
     keyword: str,
     retries: int = 2,
     sleep_sec: float = 0.25,
+    fallback_total_products: int = 0,
+    fallback_overseas_products: int = 0,
 ) -> Dict[str, Any]:
     for attempt in range(retries + 1):
         try:
@@ -357,15 +396,15 @@ def query_shopping_metrics(
         except Exception as e:
             if attempt >= retries:
                 return {
-                    "total_products": 0,
-                    "non_cb_products": 0,
-                    "overseas_products": 0,
-                    "overseas_ratio": 0,
+                    "total_products": fallback_total_products,
+                    "non_cb_products": max(fallback_total_products - fallback_overseas_products, 0),
+                    "overseas_products": fallback_overseas_products,
+                    "overseas_ratio": safe_div(fallback_overseas_products, fallback_total_products),
                     "avg_top10_price": 0,
                     "min_top10_price": 0,
                     "sample_titles": "",
                     "sample_malls": "",
-                    "shopping_status": f"error:{str(e)[:100]}",
+                    "shopping_status": f"fallback_input_after_error:{str(e)[:100]}",
                 }
             time.sleep(sleep_sec * (attempt + 1))
 
@@ -491,6 +530,18 @@ def attach_trend(df: pd.DataFrame, reports_dir: Path) -> pd.DataFrame:
 
 
 def score_dataframe(df: pd.DataFrame, reports_dir: Path) -> pd.DataFrame:
+    # API 실패/무결과 시 입력 파일에 있던 네이버 상품수/해외상품수를 fallback으로 사용
+    for target, fallback in [
+        ("total_products", "input_total_products"),
+        ("overseas_products", "input_overseas_products"),
+    ]:
+        if target in df.columns and fallback in df.columns:
+            target_num = pd.to_numeric(df[target], errors="coerce").fillna(0)
+            fallback_num = pd.to_numeric(df[fallback], errors="coerce").fillna(0)
+            df[target] = target_num.where(target_num > 0, fallback_num)
+    if "total_products" in df.columns and "overseas_products" in df.columns:
+        df["overseas_ratio"] = df.apply(lambda r: safe_div(float(r["overseas_products"]), float(r["total_products"])), axis=1)
+
     df = attach_trend(df, reports_dir)
 
     df["demand_raw"] = pd.to_numeric(df["search_volume"], errors="coerce").fillna(0).map(lambda x: math.log1p(x))
@@ -671,22 +722,32 @@ def run(args: argparse.Namespace) -> Path:
         if not keyword:
             continue
 
-        print(f"[{idx + 1}/{len(df)}] {brand} / {keyword}", flush=True)
+        api_keyword = api_safe_keyword(keyword, brand)
+        input_total_products = to_int(row.get("naver_products"))
+        input_overseas_products = to_int(row.get("naver_overseas_products"))
+
+        print(f"[{idx + 1}/{len(df)}] {brand} / {api_keyword}", flush=True)
 
         search_volume, volume_source = query_keyword_volume(
-            searchad_client, keyword, fallback=fallback_volume, sleep_sec=args.sleep
+            searchad_client, api_keyword, fallback=fallback_volume, sleep_sec=args.sleep
         )
 
-        shopping = query_shopping_metrics(open_client, keyword, sleep_sec=args.sleep)
+        shopping = query_shopping_metrics(
+            open_client,
+            api_keyword,
+            sleep_sec=args.sleep,
+            fallback_total_products=input_total_products,
+            fallback_overseas_products=input_overseas_products,
+        )
 
         rows.append({
             "brand": brand,
             "category": clean_text(row.get("category", "")),
-            "keyword": keyword,
+            "keyword": api_keyword,
             "search_volume": search_volume,
             "input_search_volume": fallback_volume,
-            "input_total_products": to_int(row.get("naver_products")),
-            "input_overseas_products": to_int(row.get("naver_overseas_products")),
+            "input_total_products": input_total_products,
+            "input_overseas_products": input_overseas_products,
             "volume_source": volume_source,
             **shopping,
         })
