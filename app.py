@@ -1,3 +1,4 @@
+import io
 import json
 import re
 from pathlib import Path
@@ -114,13 +115,18 @@ def find_default_data_file() -> Path | None:
 
 @st.cache_data(show_spinner=False)
 def load_workbook_from_bytes(file_bytes: bytes) -> dict[str, pd.DataFrame]:
-    xls = pd.ExcelFile(file_bytes)
+    """
+    Streamlit UploadedFile.getvalue() returns raw bytes.
+    pandas/openpyxl expects a path or a file-like object, so wrap bytes with BytesIO.
+    """
+    buffer = io.BytesIO(file_bytes)
+    xls = pd.ExcelFile(buffer, engine="openpyxl")
     return {sheet: pd.read_excel(xls, sheet_name=sheet) for sheet in xls.sheet_names}
 
 
 @st.cache_data(show_spinner=False)
 def load_workbook_from_path(path: str) -> dict[str, pd.DataFrame]:
-    xls = pd.ExcelFile(path)
+    xls = pd.ExcelFile(path, engine="openpyxl")
     return {sheet: pd.read_excel(xls, sheet_name=sheet) for sheet in xls.sheet_names}
 
 
