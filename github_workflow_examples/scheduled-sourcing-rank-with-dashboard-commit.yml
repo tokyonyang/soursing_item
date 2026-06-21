@@ -1,0 +1,83 @@
+name: scheduled-sourcing-rank
+
+on:
+  schedule:
+    # 매주 월요일 오전 9시 KST
+    - cron: "0 9 * * 1"
+      timezone: "Asia/Seoul"
+    # 매월 1일 오전 9시 KST
+    - cron: "0 9 1 * *"
+      timezone: "Asia/Seoul"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sourcing ranker
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          NAVER_SEARCHAD_API_KEY: ${{ secrets.NAVER_SEARCHAD_API_KEY }}
+          NAVER_SEARCHAD_SECRET_KEY: ${{ secrets.NAVER_SEARCHAD_SECRET_KEY }}
+          NAVER_SEARCHAD_CUSTOMER_ID: ${{ secrets.NAVER_SEARCHAD_CUSTOMER_ID }}
+        run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --top 100 --discover-products --products-only --product-seed-limit 60 --product-keywords-per-brand 8 --min-product-volume 1000 --max-product-candidates 200
+
+      - name: Prepare dashboard data
+        if: success()
+        run: python update_dashboard_data.py
+
+      - name: Commit dashboard data
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard_data/
+          git commit -m "Update dashboard data" || echo "No dashboard data changes"
+          git push
+
+      - name: Notify report
+        if: always()
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.5-flash' }}
+
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+          REPORT_WEBHOOK_URL: ${{ secrets.REPORT_WEBHOOK_URL }}
+
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          REPORT_FROM_EMAIL: ${{ secrets.REPORT_FROM_EMAIL }}
+          REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
+          REPORT_EMAIL_SUBJECT: 네이버 해외직구 소싱 자동 리포트
+        run: python notify_report.py --top 15
+
+      - name: Upload Excel report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sourcing-rank-report
+          path: |
+            reports/*.xlsx
+            reports/*.csv
+          retention-days: 30
