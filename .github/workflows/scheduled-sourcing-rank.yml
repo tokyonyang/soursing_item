@@ -1,20 +1,16 @@
 name: scheduled-sourcing-rank
 
 on:
-  schedule:
-    # 매주 월요일 오전 9시 KST
-    - cron: "0 9 * * 1"
-      timezone: "Asia/Seoul"
-    # 매월 1일 오전 9시 KST
-    - cron: "0 9 1 * *"
-      timezone: "Asia/Seoul"
   workflow_dispatch:
+  schedule:
+    # 매주 월요일 09:00 KST = 월요일 00:00 UTC
+    - cron: "0 0 * * 1"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  run:
+  scheduled-sourcing-rank:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -38,6 +34,19 @@ jobs:
           NAVER_SEARCHAD_SECRET_KEY: ${{ secrets.NAVER_SEARCHAD_SECRET_KEY }}
           NAVER_SEARCHAD_CUSTOMER_ID: ${{ secrets.NAVER_SEARCHAD_CUSTOMER_ID }}
         run: python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --top 100 --discover-products --products-only --product-seed-limit 60 --product-keywords-per-brand 8 --min-product-volume 1000 --max-product-candidates 200
+
+      - name: Prepare dashboard data
+        if: success()
+        run: python update_dashboard_data.py
+
+      - name: Commit dashboard data
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard_data/
+          git commit -m "Update dashboard data" || echo "No dashboard data changes"
+          git push
 
       - name: Notify report
         if: always()
