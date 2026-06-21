@@ -53,11 +53,14 @@ def read_top_rows(path: Path, top_n: int = 15) -> pd.DataFrame:
     df = pd.read_excel(path, sheet_name=sheet)
     # 보기 좋은 컬럼만 남기기. 컬럼명이 다소 바뀌어도 최대한 대응.
     preferred = [
-        "rank", "순위", "추천등급", "sourcing_score", "최종점수", "brand", "브랜드명",
-        "primary_keyword", "대표키워드", "category", "대표카테고리",
-        "search_volume", "검색량", "volume_growth_pct", "상승률",
-        "naver_products", "네이버상품수", "naver_overseas_products", "네이버해외상품수",
-        "avg_price", "평균가", "risk_flags", "리스크"
+        "rank", "순위", "recommendation", "추천등급", "sourcing_score", "최종점수", "final_score",
+        "source_type", "discovery_seed",
+        "brand", "브랜드명", "primary_keyword", "대표키워드", "keyword",
+        "category", "대표카테고리", "search_volume", "검색량",
+        "volume_growth_pct", "상승률", "search_volume_growth_pct",
+        "naver_products", "네이버상품수", "total_products",
+        "naver_overseas_products", "네이버해외상품수", "overseas_products",
+        "avg_price", "평균가", "avg_top10_price", "risk_flags", "리스크"
     ]
     cols = [c for c in preferred if c in df.columns]
     if cols:
@@ -76,16 +79,18 @@ def df_to_compact_text(df: pd.DataFrame, top_n: int = 10) -> str:
 
         rank = val("rank", "순위", default=idx + 1)
         brand = val("brand", "브랜드명")
-        keyword = val("primary_keyword", "대표키워드", default=brand)
-        score = val("sourcing_score", "최종점수", default="")
+        keyword = val("primary_keyword", "대표키워드", "keyword", default=brand)
+        score = val("sourcing_score", "최종점수", "final_score", default="")
         volume = val("search_volume", "검색량", default="")
-        overseas = val("naver_overseas_products", "네이버해외상품수", default="")
+        overseas = val("naver_overseas_products", "네이버해외상품수", "overseas_products", default="")
         risk = val("risk_flags", "리스크", default="")
+        source_type = val("source_type", default="")
+        source_txt = "신규발굴" if str(source_type) == "discovered" else "기존"
         score_txt = f" / 점수 {float(score):.1f}" if isinstance(score, (int, float)) else (f" / 점수 {score}" if score != "" else "")
         volume_txt = f" / 검색량 {int(volume):,}" if isinstance(volume, (int, float)) else (f" / 검색량 {volume}" if volume != "" else "")
         overseas_txt = f" / 해외상품 {int(overseas):,}" if isinstance(overseas, (int, float)) else (f" / 해외상품 {overseas}" if overseas != "" else "")
         risk_txt = f" / 주의 {risk}" if risk else ""
-        lines.append(f"{rank}. {brand} - {keyword}{score_txt}{volume_txt}{overseas_txt}{risk_txt}")
+        lines.append(f"{rank}. [{source_txt}] {brand} - {keyword}{score_txt}{volume_txt}{overseas_txt}{risk_txt}")
     return "\n".join(lines)
 
 

@@ -3,8 +3,9 @@
 """
 네이버 해외직구/구매대행 소싱 후보 자동 랭킹
 - 입력: 브랜드&키워드 엑셀/CSV
+- 신규 발굴: 네이버 검색광고 키워드도구 연관키워드 후보 확장(선택)
 - 조회: 네이버 검색광고 키워드도구(월간검색수), 네이버 쇼핑검색 API(전체/해외상품수, 국내가 샘플)
-- 출력: reports/sourcing_rank_YYYYMMDD.xlsx, history snapshot CSV
+- 출력: reports/sourcing_rank_YYYYMMDD.xlsx, reports/discovered_keywords_YYYYMMDD.csv, history snapshot CSV
 
 필수 환경변수:
   NAVER_CLIENT_ID
@@ -17,6 +18,7 @@
 
 사용 예:
   python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --top 80
+  python sourcing_ranker.py --input "브랜드&키워드 300개.xlsx" --discover-related --related-per-brand 5 --max-discovered 100
   python sourcing_ranker.py --input brands.csv --no-searchad
 """
 
@@ -269,6 +271,8 @@ def load_input(path: Path) -> pd.DataFrame:
     # 중요: 키워드&시리즈의 줄바꿈은 대표키워드 추출에 필요하므로 clean_text를 쓰지 않는다.
     df["keyword_series"] = df["keyword_series"].map(clean_keyword_series)
     df = df[df["brand"] != ""].drop_duplicates(subset=["brand", "keyword_series"])
+    df["source_type"] = "seed"
+    df["discovery_seed"] = ""
     return df.reset_index(drop=True)
 
 
@@ -329,6 +333,142 @@ def parse_searchad_volume(resp: Dict[str, Any], exact_keyword: str) -> Tuple[int
     pc = to_int(best.get("monthlyPcQcCnt"))
     mo = to_int(best.get("monthlyMobileQcCnt"))
     return pc + mo, best
+
+
+
+def searchad_keyword_items(resp: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """검색광고 keywordstool 응답에서 keywordList를 안전하게 꺼낸다."""
+    items = resp.get("keywordList") or resp.get("data") or []
+    return items if isinstance(items, list) else []
+
+
+def keyword_volume_from_item(item: Dict[str, Any]) -> int:
+    return to_int(item.get("monthlyPcQcCnt")) + to_int(item.get("monthlyMobileQcCnt"))
+
+
+def keyword_norm(value: Any) -> str:
+    return re.sub(r"\s+", "", clean_text(value)).lower()
+
+
+def is_too_broad_or_risky_discovery(keyword: str) -> bool:
+    """신규 후보 자동추가에서 너무 넓거나 규제 리스크가 큰 키워드를 1차 제외."""
+    k = clean_text(keyword).lower()
+    if not k:
+        return True
+    # 너무 짧은 일반어는 쇼핑 검색이 넓게 퍼져서 소싱 후보로 부적합
+    if len(k) <= 1:
+        return True
+    risky = [
+        "영양제", "보충제", "건강식품", "다이어트", "의약품", "약", "성분", "담배",
+        "전자담배", "술", "맥주", "와인", "CBD", "THC", "대마", "성인용품"
+    ]
+    return any(x.lower() in k for x in risky)
+
+
+def discover_related_keywords(
+    seed_df: pd.DataFrame,
+    client: Optional[NaverSearchAdClient],
+    related_per_brand: int = 5,
+    min_volume: int = 3000,
+    seed_limit: int = 40,
+    max_discovered: int = 100,
+    sleep_sec: float = 0.35,
+    exclude_risky: bool = True,
+) -> pd.DataFrame:
+    """
+    기존 브랜드/키워드에서 검색광고 연관키워드를 가져와 신규 후보를 만든다.
+    - 기존 엑셀에 없는 후보만 추가
+    - 월간검색수 하한, 최대 개수 제한으로 GitHub Actions 실행시간 폭주 방지
+    """
+    if client is None:
+        print("[WARN] 검색광고 API 키가 없어 신규 키워드 자동 발굴을 건너뜁니다.", file=sys.stderr)
+        return pd.DataFrame(columns=[
+            "brand", "category", "keyword_series", "base_volume",
+            "naver_products", "naver_overseas_products",
+            "source_type", "discovery_seed"
+        ])
+
+    work = seed_df.copy()
+    work["_base_volume_num"] = pd.to_numeric(work.get("base_volume", 0), errors="coerce").fillna(0)
+    work = work.sort_values("_base_volume_num", ascending=False)
+    if seed_limit and seed_limit > 0:
+        work = work.head(seed_limit)
+
+    existing = set()
+    for _, r in seed_df.iterrows():
+        existing.add((keyword_norm(r.get("brand", "")), keyword_norm(pick_primary_keyword(r))))
+        existing.add((keyword_norm(r.get("brand", "")), keyword_norm(r.get("brand", ""))))
+
+    discovered_by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
+
+    for idx, row in work.iterrows():
+        brand = clean_text(row.get("brand", ""))
+        seed_keyword = api_safe_keyword(pick_primary_keyword(row), brand)
+        if not seed_keyword:
+            continue
+
+        print(f"[DISCOVER {len(discovered_by_key)}/{max_discovered}] {brand} -> {seed_keyword}", flush=True)
+
+        try:
+            resp = client.keyword_tool(seed_keyword)
+            items = searchad_keyword_items(resp)
+        except Exception as e:
+            print(f"[WARN] discovery failed: {brand}/{seed_keyword}: {str(e)[:100]}", file=sys.stderr)
+            time.sleep(sleep_sec)
+            continue
+
+        candidates = []
+        for item in items:
+            rel = clean_text(item.get("relKeyword", ""))
+            vol = keyword_volume_from_item(item)
+            if not rel or vol < min_volume:
+                continue
+            if exclude_risky and is_too_broad_or_risky_discovery(rel):
+                continue
+            # API 안전 길이. 너무 긴 키워드는 신규 후보로 쓰지 않음.
+            if len(rel) > 40 or len(rel.encode("utf-8")) > 100 or rel.count(" ") >= 4:
+                continue
+
+            key = (keyword_norm(brand), keyword_norm(rel))
+            if key in existing:
+                continue
+            candidates.append((rel, vol, item))
+
+        candidates.sort(key=lambda x: x[1], reverse=True)
+
+        for rel, vol, item in candidates[:related_per_brand]:
+            key = (keyword_norm(brand), keyword_norm(rel))
+            prev = discovered_by_key.get(key)
+            if prev is None or vol > prev["base_volume"]:
+                discovered_by_key[key] = {
+                    "brand": brand,
+                    "category": clean_text(row.get("category", "")),
+                    "keyword_series": rel,
+                    "base_volume": int(vol),
+                    "naver_products": 0,
+                    "naver_overseas_products": 0,
+                    "source_type": "discovered",
+                    "discovery_seed": seed_keyword,
+                }
+
+            if len(discovered_by_key) >= max_discovered:
+                break
+
+        time.sleep(sleep_sec)
+        if len(discovered_by_key) >= max_discovered:
+            break
+
+    if not discovered_by_key:
+        return pd.DataFrame(columns=[
+            "brand", "category", "keyword_series", "base_volume",
+            "naver_products", "naver_overseas_products",
+            "source_type", "discovery_seed"
+        ])
+
+    out = pd.DataFrame(list(discovered_by_key.values()))
+    out = out.sort_values("base_volume", ascending=False).reset_index(drop=True)
+    print(f"[DISCOVER DONE] 신규 후보 {len(out)}개", flush=True)
+    return out
 
 
 def query_keyword_volume(
@@ -583,6 +723,7 @@ def score_dataframe(df: pd.DataFrame, reports_dir: Path) -> pd.DataFrame:
 
     cols = [
         "recommendation", "final_score",
+        "source_type", "discovery_seed",
         "brand", "category", "keyword",
         "search_volume", "prev_search_volume", "search_volume_growth_pct",
         "total_products", "overseas_products", "overseas_ratio",
@@ -605,10 +746,14 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
     out = reports_dir / f"sourcing_rank_{today}.xlsx"
 
     top_df = df.head(top_n).copy()
+    discovered_count = int((df.get("source_type", pd.Series(dtype=str)).astype(str) == "discovered").sum()) if "source_type" in df.columns else 0
+    seed_count = int((df.get("source_type", pd.Series(dtype=str)).astype(str) == "seed").sum()) if "source_type" in df.columns else len(df)
     summary = pd.DataFrame({
         "항목": [
             "생성일",
             "전체 후보 수",
+            "기존 후보 수",
+            "신규 발굴 후보 수",
             f"TOP {top_n} 평균 점수",
             "우선소싱 수",
             "테스트 수",
@@ -618,6 +763,8 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
         "값": [
             dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             len(df),
+            seed_count,
+            discovered_count,
             round(float(top_df["final_score"].mean()), 1) if len(top_df) else 0,
             int((df["recommendation"].astype(str) == "우선소싱").sum()),
             int((df["recommendation"].astype(str) == "테스트").sum()),
@@ -629,6 +776,9 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
     with pd.ExcelWriter(out, engine="xlsxwriter") as writer:
         summary.to_excel(writer, index=False, sheet_name="요약")
         top_df.to_excel(writer, index=False, sheet_name=f"TOP_{top_n}")
+        if "source_type" in df.columns:
+            new_df = df[df["source_type"].astype(str) == "discovered"].copy()
+            new_df.head(top_n).to_excel(writer, index=False, sheet_name="신규발굴_TOP")
         df.to_excel(writer, index=False, sheet_name="전체랭킹")
 
         workbook = writer.book
@@ -640,7 +790,10 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
         fmt_good = workbook.add_format({"bg_color": "#D9EAD3"})
         fmt_bad = workbook.add_format({"bg_color": "#F4CCCC"})
 
-        for sheet_name in ["요약", f"TOP_{top_n}", "전체랭킹"]:
+        report_sheets = ["요약", f"TOP_{top_n}", "전체랭킹"]
+        if "신규발굴_TOP" in writer.sheets:
+            report_sheets.insert(2, "신규발굴_TOP")
+        for sheet_name in report_sheets:
             ws = writer.sheets[sheet_name]
             ws.freeze_panes(1, 0)
             ws.autofilter(0, 0, max(1, len(df)), max(1, len(df.columns) - 1))
@@ -672,6 +825,10 @@ def save_report(df: pd.DataFrame, reports_dir: Path, top_n: int) -> Path:
 
     hist = reports_dir / f"history_{today}.csv"
     df.to_csv(hist, index=False, encoding="utf-8-sig")
+    if "source_type" in df.columns:
+        discovered = df[df["source_type"].astype(str) == "discovered"].copy()
+        if len(discovered):
+            discovered.to_csv(reports_dir / f"discovered_keywords_{today}.csv", index=False, encoding="utf-8-sig")
     return out
 
 
@@ -713,6 +870,26 @@ def run(args: argparse.Namespace) -> Path:
 
     open_client, searchad_client = build_clients(args)
 
+    if args.discover_related:
+        discovered_df = discover_related_keywords(
+            df,
+            searchad_client,
+            related_per_brand=args.related_per_brand,
+            min_volume=args.min_discovered_volume,
+            seed_limit=args.discovery_seed_limit,
+            max_discovered=args.max_discovered,
+            sleep_sec=args.sleep,
+            exclude_risky=not args.include_risky_discovery,
+        )
+        if len(discovered_df):
+            df = pd.concat([df, discovered_df], ignore_index=True)
+            # 같은 브랜드+대표키워드 중복 제거: 기존 seed 우선
+            df["_priority"] = df["source_type"].map({"seed": 0, "discovered": 1}).fillna(9)
+            df["_kw_norm"] = df.apply(lambda r: keyword_norm(pick_primary_keyword(r)), axis=1)
+            df["_brand_norm"] = df["brand"].map(keyword_norm)
+            df = df.sort_values(["_priority"]).drop_duplicates(subset=["_brand_norm", "_kw_norm"])
+            df = df.drop(columns=["_priority", "_kw_norm", "_brand_norm"]).reset_index(drop=True)
+
     rows: List[Dict[str, Any]] = []
     for idx, row in df.iterrows():
         brand = clean_text(row["brand"])
@@ -728,9 +905,13 @@ def run(args: argparse.Namespace) -> Path:
 
         print(f"[{idx + 1}/{len(df)}] {brand} / {api_keyword}", flush=True)
 
-        search_volume, volume_source = query_keyword_volume(
-            searchad_client, api_keyword, fallback=fallback_volume, sleep_sec=args.sleep
-        )
+        if clean_text(row.get("source_type", "")) == "discovered" and fallback_volume > 0:
+            # discovery 단계에서 이미 검색광고 월간검색수를 확보했으므로 중복 호출 방지
+            search_volume, volume_source = fallback_volume, "searchad_discovery"
+        else:
+            search_volume, volume_source = query_keyword_volume(
+                searchad_client, api_keyword, fallback=fallback_volume, sleep_sec=args.sleep
+            )
 
         shopping = query_shopping_metrics(
             open_client,
@@ -741,6 +922,8 @@ def run(args: argparse.Namespace) -> Path:
         )
 
         rows.append({
+            "source_type": clean_text(row.get("source_type", "seed")) or "seed",
+            "discovery_seed": clean_text(row.get("discovery_seed", "")),
             "brand": brand,
             "category": clean_text(row.get("category", "")),
             "keyword": api_keyword,
@@ -770,6 +953,12 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--limit", type=int, default=0, help="테스트용 조회 개수 제한")
     p.add_argument("--sleep", type=float, default=0.35, help="API 호출 간격 초")
     p.add_argument("--no-searchad", action="store_true", help="검색광고 API 호출 없이 입력 파일 검색량 사용")
+    p.add_argument("--discover-related", action="store_true", help="검색광고 연관키워드로 신규 후보 자동 발굴")
+    p.add_argument("--related-per-brand", type=int, default=5, help="브랜드/시드당 추가할 연관키워드 개수")
+    p.add_argument("--min-discovered-volume", type=int, default=3000, help="신규 후보 최소 월간검색수")
+    p.add_argument("--discovery-seed-limit", type=int, default=40, help="신규 발굴에 사용할 상위 시드 개수")
+    p.add_argument("--max-discovered", type=int, default=100, help="최대 신규 발굴 후보 수")
+    p.add_argument("--include-risky-discovery", action="store_true", help="규제/리스크 키워드도 신규 후보에 포함")
     return p.parse_args(argv)
 
 
