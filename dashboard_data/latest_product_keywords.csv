@@ -1,425 +1,425 @@
 ﻿recommendation,final_score,source_type,discovery_seed,product_group,product_source,brand,category,keyword,search_volume,prev_search_volume,search_volume_growth_pct,total_products,overseas_products,overseas_ratio,opportunity_raw,avg_top10_price,min_top10_price,risk_flags,risk_penalty,volume_source,shopping_status,sample_titles,sample_malls
-테스트,68.4,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스백팩,85880,0,0.0,0,0,0.0,858.8,0,0,,0,searchad:아크테릭스백팩,"fallback_input_after_error:Shopping API error 404: {
+테스트,68.7,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스백팩,87780,0,0.0,0,0,0.0,877.8,0,0,,0,searchad:아크테릭스백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,67.5,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스샌들,81110,0,0.0,0,0,0.0,811.1,0,0,사이즈반품,6,searchad:스케쳐스샌들,"fallback_input_after_error:Shopping API error 404: {
+테스트,67.5,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스샌들,80190,0,0.0,0,0,0.0,801.9,0,0,사이즈반품,6,searchad:스케쳐스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,67.4,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴가방,72030,0,0.0,0,0,0.0,720.3,0,0,,0,searchad:롱샴가방,"fallback_input_after_error:Shopping API error 404: {
+테스트,67.4,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴가방,71080,0,0.0,0,0,0.0,710.8,0,0,,0,searchad:롱샴가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,66.3,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스샌들,69780,0,0.0,0,0,0.0,697.8,0,0,사이즈반품,6,searchad:크록스샌들,"fallback_input_after_error:Shopping API error 404: {
+테스트,66.6,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스샌들,70940,0,0.0,0,0,0.0,709.4,0,0,사이즈반품,6,searchad:크록스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,65.3,product_discovered,아레나,여성수영복,searchad_related,아레나,여성수영복,아레나여성수영복,21760,0,0.0,0,0,0.0,217.6,0,0,,0,searchad:아레나여성수영복,"fallback_input_after_error:Shopping API error 404: {
+테스트,65.0,product_discovered,아레나,여성수영복,searchad_related,아레나,여성수영복,아레나여성수영복,20490,0,0.0,0,0,0.0,204.9,0,0,,0,searchad:아레나여성수영복,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,64.9,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴르플리아쥬,39030,0,0.0,0,0,0.0,390.3,0,0,,0,searchad:롱샴르플리아쥬,"fallback_input_after_error:Shopping API error 404: {
+테스트,64.9,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴르플리아쥬,38700,0,0.0,0,0,0.0,387.0,0,0,,0,searchad:롱샴르플리아쥬,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,63.6,product_discovered,나이키,신발,searchad_related,나이키,신발,나이키운동화,134700,0,0.0,0,0,0.0,1347.0,0,0,사이즈반품,6,searchad:나이키운동화,"fallback_input_after_error:Shopping API error 404: {
+테스트,63.6,product_discovered,나이키,신발,searchad_related,나이키,신발,나이키운동화,135900,0,0.0,0,0,0.0,1359.0,0,0,사이즈반품,6,searchad:나이키운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,63.3,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스슬리퍼,92090,0,0.0,0,0,0.0,920.9,0,0,사이즈반품,6,searchad:크록스슬리퍼,"fallback_input_after_error:Shopping API error 404: {
+테스트,63.3,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스슬리퍼,93750,0,0.0,0,0,0.0,937.5,0,0,사이즈반품,6,searchad:크록스슬리퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,63.0,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스운동화,88840,0,0.0,0,0,0.0,888.4,0,0,사이즈반품,6,searchad:뉴발란스운동화,"fallback_input_after_error:Shopping API error 404: {
+테스트,63.3,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스헬리아드15,29580,0,0.0,0,0,0.0,295.8,0,0,,0,searchad:아크테릭스헬리아드15,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,63.0,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스헬리아드15,28630,0,0.0,0,0,0.0,286.3,0,0,,0,searchad:아크테릭스헬리아드15,"fallback_input_after_error:Shopping API error 404: {
+테스트,63.0,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스운동화,88970,0,0.0,0,0,0.0,889.7,0,0,사이즈반품,6,searchad:뉴발란스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,62.8,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스샌들,29250,0,0.0,0,0,0.0,292.5,0,0,사이즈반품,6,searchad:아디다스샌들,"fallback_input_after_error:Shopping API error 404: {
+테스트,62.5,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스샌들,28870,0,0.0,0,0,0.0,288.7,0,0,사이즈반품,6,searchad:아디다스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,62.7,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스운동화,86680,0,0.0,0,0,0.0,866.8,0,0,사이즈반품,6,searchad:아디다스운동화,"fallback_input_after_error:Shopping API error 404: {
+테스트,62.4,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스운동화,86480,0,0.0,0,0,0.0,864.8,0,0,사이즈반품,6,searchad:아디다스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,62.3,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴미니백,27230,0,0.0,0,0,0.0,272.3,0,0,,0,searchad:롱샴미니백,"fallback_input_after_error:Shopping API error 404: {
+테스트,62.3,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴미니백,26930,0,0.0,0,0,0.0,269.3,0,0,,0,searchad:롱샴미니백,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,61.7,product_discovered,나이키,신발,searchad_related,나이키,신발,나이키슬리퍼,78920,0,0.0,0,0,0.0,789.2,0,0,사이즈반품,6,searchad:나이키슬리퍼,"fallback_input_after_error:Shopping API error 404: {
+테스트,61.7,product_discovered,나이키,신발,searchad_related,나이키,신발,나이키슬리퍼,79990,0,0.0,0,0,0.0,799.9,0,0,사이즈반품,6,searchad:나이키슬리퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,61.7,product_discovered,노스페이스,가방/지갑,searchad_related,노스페이스,가방/지갑,노스페이스백팩,25400,0,0.0,0,0,0.0,254.0,0,0,,0,searchad:노스페이스백팩,"fallback_input_after_error:Shopping API error 404: {
+테스트,61.7,product_discovered,노스페이스,가방/지갑,searchad_related,노스페이스,가방/지갑,노스페이스백팩,25520,0,0.0,0,0,0.0,255.2,0,0,,0,searchad:노스페이스백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,61.1,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스운동화,70750,0,0.0,0,0,0.0,707.5,0,0,사이즈반품,6,searchad:스케쳐스운동화,"fallback_input_after_error:Shopping API error 404: {
+테스트,61.1,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스반팔,23090,0,0.0,0,0,0.0,230.9,0,0,,0,searchad:아크테릭스반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,61.1,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스반팔,23190,0,0.0,0,0,0.0,231.9,0,0,,0,searchad:아크테릭스반팔,"fallback_input_after_error:Shopping API error 404: {
+테스트,60.8,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스운동화,70860,0,0.0,0,0,0.0,708.6,0,0,사이즈반품,6,searchad:스케쳐스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,60.5,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤카야노14,65270,0,0.0,0,0,0.0,652.7,0,0,사이즈반품,6,searchad:아식스젤카야노14,"fallback_input_after_error:Shopping API error 404: {
+테스트,60.5,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤카야노14,66230,0,0.0,0,0,0.0,662.3,0,0,사이즈반품,6,searchad:아식스젤카야노14,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,60.1,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스운동화,63350,0,0.0,0,0,0.0,633.5,0,0,사이즈반품,6,searchad:아식스운동화,"fallback_input_after_error:Shopping API error 404: {
+테스트,60.1,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스운동화,62270,0,0.0,0,0,0.0,622.7,0,0,사이즈반품,6,searchad:아식스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-테스트,60.1,product_discovered,찰스앤키스,가방/지갑,searchad_related,찰스앤키스,가방/지갑,찰스앤키스가방,22020,0,0.0,0,0,0.0,220.2,0,0,,0,searchad:찰스앤키스가방,"fallback_input_after_error:Shopping API error 404: {
+테스트,60.1,product_discovered,찰스앤키스,가방/지갑,searchad_related,찰스앤키스,가방/지갑,찰스앤키스가방,22150,0,0.0,0,0,0.0,221.5,0,0,,0,searchad:찰스앤키스가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,59.9,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스샌들,22070,0,0.0,0,0,0.0,220.7,0,0,사이즈반품,6,searchad:뉴발란스샌들,"fallback_input_after_error:Shopping API error 404: {
+관찰,59.8,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스530,55910,0,0.0,0,0,0.0,559.1,0,0,사이즈반품,6,searchad:뉴발란스530,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,59.8,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스530,55780,0,0.0,0,0,0.0,557.8,0,0,사이즈반품,6,searchad:뉴발란스530,"fallback_input_after_error:Shopping API error 404: {
+관찰,59.5,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤카야노,52770,0,0.0,0,0,0.0,527.7,0,0,사이즈반품,6,searchad:아식스젤카야노,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,59.5,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤카야노,54640,0,0.0,0,0,0.0,546.4,0,0,사이즈반품,6,searchad:아식스젤카야노,"fallback_input_after_error:Shopping API error 404: {
+관찰,59.3,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스샌들,21780,0,0.0,0,0,0.0,217.8,0,0,사이즈반품,6,searchad:뉴발란스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,59.2,product_discovered,나이키,패션의류/패션잡화,searchad_related,나이키,패션의류/패션잡화,나이키에어포스,47750,0,0.0,0,0,0.0,477.5,0,0,사이즈반품,6,searchad:나이키에어포스,"fallback_input_after_error:Shopping API error 404: {
+관찰,59.2,product_discovered,나이키,패션의류/패션잡화,searchad_related,나이키,패션의류/패션잡화,나이키에어포스,47370,0,0.0,0,0,0.0,473.7,0,0,사이즈반품,6,searchad:나이키에어포스,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,58.7,product_discovered,어그,신발,searchad_related,어그,신발,어그샌들,20140,0,0.0,0,0,0.0,201.4,0,0,사이즈반품,6,searchad:어그샌들,"fallback_input_after_error:Shopping API error 404: {
+관찰,58.7,product_discovered,어그,신발,searchad_related,어그,신발,어그샌들,19390,0,0.0,0,0,0.0,193.9,0,0,사이즈반품,6,searchad:어그샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,58.6,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키반바지,36010,0,0.0,0,0,0.0,360.1,0,0,사이즈반품,6,searchad:나이키반바지,"fallback_input_after_error:Shopping API error 404: {
+관찰,58.6,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키반바지,36830,0,0.0,0,0,0.0,368.3,0,0,사이즈반품,6,searchad:나이키반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,58.2,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테반팔,35090,0,0.0,0,0,0.0,350.9,0,0,사이즈반품,6,searchad:라코스테반팔,"fallback_input_after_error:Shopping API error 404: {
+관찰,58.2,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테반팔,35120,0,0.0,0,0,0.0,351.2,0,0,사이즈반품,6,searchad:라코스테반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,57.9,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬운동화,33740,0,0.0,0,0,0.0,337.4,0,0,사이즈반품,6,searchad:살로몬운동화,"fallback_input_after_error:Shopping API error 404: {
+관찰,57.9,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬운동화,33870,0,0.0,0,0,0.0,338.7,0,0,사이즈반품,6,searchad:살로몬운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,57.6,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스740,32820,0,0.0,0,0,0.0,328.2,0,0,사이즈반품,6,searchad:뉴발란스740,"fallback_input_after_error:Shopping API error 404: {
+관찰,57.6,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스740,32860,0,0.0,0,0,0.0,328.6,0,0,사이즈반품,6,searchad:뉴발란스740,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,56.9,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴백팩,15380,0,0.0,0,0,0.0,153.8,0,0,,0,searchad:롱샴백팩,"fallback_input_after_error:Shopping API error 404: {
+관찰,56.9,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴백팩,15330,0,0.0,0,0,0.0,153.3,0,0,,0,searchad:롱샴백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,56.6,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키모자,27840,0,0.0,0,0,0.0,278.4,0,0,사이즈반품,6,searchad:나이키모자,"fallback_input_after_error:Shopping API error 404: {
+관찰,56.6,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키모자,28210,0,0.0,0,0,0.0,282.1,0,0,사이즈반품,6,searchad:나이키모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,56.3,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어,14760,0,0.0,0,0,0.0,147.6,0,0,,0,searchad:헬리녹스체어,"fallback_input_after_error:Shopping API error 404: {
+관찰,56.0,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키양말,25530,0,0.0,0,0,0.0,255.3,0,0,사이즈반품,6,searchad:나이키양말,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,56.0,product_discovered,나이키,패션소품/의류,searchad_related,나이키,패션소품/의류,나이키양말,25740,0,0.0,0,0,0.0,257.4,0,0,사이즈반품,6,searchad:나이키양말,"fallback_input_after_error:Shopping API error 404: {
+관찰,56.0,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어,15100,0,0.0,0,0,0.0,151.0,0,0,,0,searchad:헬리녹스체어,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,55.4,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁슬리퍼,23560,0,0.0,0,0,0.0,235.6,0,0,사이즈반품,6,searchad:버켄스탁슬리퍼,"fallback_input_after_error:Shopping API error 404: {
+관찰,55.4,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁슬리퍼,23770,0,0.0,0,0,0.0,237.7,0,0,사이즈반품,6,searchad:버켄스탁슬리퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,55.2,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스샌들,13460,0,0.0,0,0,0.0,134.6,0,0,사이즈반품,6,searchad:아식스샌들,"fallback_input_after_error:Shopping API error 404: {
+관찰,55.2,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스샌들,13170,0,0.0,0,0,0.0,131.7,0,0,사이즈반품,6,searchad:아식스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,54.7,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스1906,22670,0,0.0,0,0,0.0,226.7,0,0,사이즈반품,6,searchad:뉴발란스1906,"fallback_input_after_error:Shopping API error 404: {
+관찰,54.7,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스1906,22620,0,0.0,0,0,0.0,226.2,0,0,사이즈반품,6,searchad:뉴발란스1906,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,54.7,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스모자,12300,0,0.0,0,0,0.0,123.0,0,0,,0,searchad:아크테릭스모자,"fallback_input_after_error:Shopping API error 404: {
+관찰,54.7,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스모자,12560,0,0.0,0,0,0.0,125.6,0,0,,0,searchad:아크테릭스모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,54.4,product_discovered,아디다스,패션잡화,searchad_related,아디다스,패션잡화,아디다스가젤,12240,0,0.0,0,0,0.0,122.4,0,0,,0,searchad:아디다스가젤,"fallback_input_after_error:Shopping API error 404: {
+관찰,54.4,product_discovered,아디다스,패션소품/의류,searchad_related,아디다스,패션소품/의류,아디다스반바지,22190,0,0.0,0,0,0.0,221.9,0,0,사이즈반품,6,searchad:아디다스반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,54.1,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트골프공,12220,0,0.0,0,0,0.0,122.2,0,0,,0,searchad:타이틀리스트골프공,"fallback_input_after_error:Shopping API error 404: {
+관찰,54.4,product_discovered,아디다스,패션잡화,searchad_related,아디다스,패션잡화,아디다스가젤,12160,0,0.0,0,0,0.0,121.6,0,0,,0,searchad:아디다스가젤,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,53.5,product_discovered,아디다스,패션소품/의류,searchad_related,아디다스,패션소품/의류,아디다스반바지,21530,0,0.0,0,0,0.0,215.3,0,0,사이즈반품,6,searchad:아디다스반바지,"fallback_input_after_error:Shopping API error 404: {
+관찰,54.1,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트골프공,12050,0,0.0,0,0,0.0,120.5,0,0,,0,searchad:타이틀리스트골프공,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,53.1,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스가방,11650,0,0.0,0,0,0.0,116.5,0,0,,0,searchad:아크테릭스가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,53.8,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스가방,12020,0,0.0,0,0,0.0,120.2,0,0,,0,searchad:아크테릭스가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,52.8,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤1130,19260,0,0.0,0,0,0.0,192.6,0,0,사이즈반품,6,searchad:아식스젤1130,"fallback_input_after_error:Shopping API error 404: {
+관찰,52.8,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아반바지,19330,0,0.0,0,0,0.0,193.3,0,0,사이즈반품,6,searchad:파타고니아반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,52.8,product_discovered,노스페이스,가방/지갑,searchad_related,노스페이스,가방/지갑,노스페이스가방,10940,0,0.0,0,0,0.0,109.4,0,0,,0,searchad:노스페이스가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,52.8,product_discovered,라코스테,가방/지갑,searchad_related,라코스테,가방/지갑,라코스테가방,11220,0,0.0,0,0,0.0,112.2,0,0,,0,searchad:라코스테가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,52.5,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아반바지,18780,0,0.0,0,0,0.0,187.8,0,0,사이즈반품,6,searchad:파타고니아반바지,"fallback_input_after_error:Shopping API error 404: {
+관찰,52.5,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스젤1130,18950,0,0.0,0,0,0.0,189.5,0,0,사이즈반품,6,searchad:아식스젤1130,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,52.2,product_discovered,살로몬,패션소품/의류,searchad_related,살로몬,패션소품/의류,살로몬모자,17820,0,0.0,0,0,0.0,178.2,0,0,사이즈반품,6,searchad:살로몬모자,"fallback_input_after_error:Shopping API error 404: {
+관찰,52.5,product_discovered,노스페이스,가방/지갑,searchad_related,노스페이스,가방/지갑,노스페이스가방,11030,0,0.0,0,0,0.0,110.3,0,0,,0,searchad:노스페이스가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,52.2,product_discovered,라코스테,가방/지갑,searchad_related,라코스테,가방/지갑,라코스테가방,10420,0,0.0,0,0,0.0,104.2,0,0,,0,searchad:라코스테가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,52.2,product_discovered,살로몬,패션소품/의류,searchad_related,살로몬,패션소품/의류,살로몬모자,18370,0,0.0,0,0,0.0,183.7,0,0,사이즈반품,6,searchad:살로몬모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,51.9,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스993,16450,0,0.0,0,0,0.0,164.5,0,0,사이즈반품,6,searchad:뉴발란스993,"fallback_input_after_error:Shopping API error 404: {
+관찰,51.9,product_discovered,뉴발란스,신발,searchad_related,뉴발란스,신발,뉴발란스993,16620,0,0.0,0,0,0.0,166.2,0,0,사이즈반품,6,searchad:뉴발란스993,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,51.6,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스러닝화,16050,0,0.0,0,0,0.0,160.5,0,0,사이즈반품,6,searchad:아디다스러닝화,"fallback_input_after_error:Shopping API error 404: {
+관찰,51.6,product_discovered,아디다스,신발,searchad_related,아디다스,신발,아디다스러닝화,16210,0,0.0,0,0,0.0,162.1,0,0,사이즈반품,6,searchad:아디다스러닝화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,51.2,product_discovered,반스,신발,searchad_related,반스,신발,반스운동화,15890,0,0.0,0,0,0.0,158.9,0,0,사이즈반품,6,searchad:반스운동화,"fallback_input_after_error:Shopping API error 404: {
+관찰,51.5,product_discovered,유니클로,가방/지갑,searchad_related,유니클로,가방/지갑,유니클로가방,10190,0,0.0,0,0,0.0,101.9,0,0,,0,searchad:유니클로가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,51.2,product_discovered,유니클로,가방/지갑,searchad_related,유니클로,가방/지갑,유니클로가방,9950,0,0.0,0,0,0.0,99.5,0,0,,0,searchad:유니클로가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,51.2,product_discovered,반스,신발,searchad_related,반스,신발,반스운동화,15790,0,0.0,0,0,0.0,157.9,0,0,사이즈반품,6,searchad:반스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,50.6,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라운동화,15240,0,0.0,0,0,0.0,152.4,0,0,사이즈반품,6,searchad:휠라운동화,"fallback_input_after_error:Shopping API error 404: {
+관찰,50.9,product_discovered,파타고니아,가방/지갑,searchad_related,파타고니아,가방/지갑,파타고니아가방,9810,0,0.0,0,0,0.0,98.1,0,0,,0,searchad:파타고니아가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,50.6,product_discovered,COS,가방/지갑,searchad_related,COS,가방/지갑,COS가방,9720,0,0.0,0,0,0.0,97.2,0,0,,0,searchad:COS가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,50.6,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라운동화,15300,0,0.0,0,0,0.0,153.0,0,0,사이즈반품,6,searchad:휠라운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,50.4,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라샌들,9900,0,0.0,0,0,0.0,99.0,0,0,사이즈반품,6,searchad:휠라샌들,"fallback_input_after_error:Shopping API error 404: {
+관찰,50.3,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스모자,15180,0,0.0,0,0,0.0,151.8,0,0,사이즈반품,6,searchad:노스페이스모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,50.0,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스모자,14600,0,0.0,0,0,0.0,146.0,0,0,사이즈반품,6,searchad:노스페이스모자,"fallback_input_after_error:Shopping API error 404: {
+관찰,50.1,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라샌들,9780,0,0.0,0,0,0.0,97.8,0,0,사이즈반품,6,searchad:휠라샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,49.6,product_discovered,파타고니아,가방/지갑,searchad_related,파타고니아,가방/지갑,파타고니아가방,9430,0,0.0,0,0,0.0,94.3,0,0,,0,searchad:파타고니아가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,49.6,product_discovered,COS,가방/지갑,searchad_related,COS,가방/지갑,COS가방,9620,0,0.0,0,0,0.0,96.2,0,0,,0,searchad:COS가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,49.3,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스반팔,12760,0,0.0,0,0,0.0,127.6,0,0,사이즈반품,6,searchad:노스페이스반팔,"fallback_input_after_error:Shopping API error 404: {
+관찰,49.3,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스반팔,12710,0,0.0,0,0,0.0,127.1,0,0,사이즈반품,6,searchad:노스페이스반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,49.3,product_discovered,스노우피크,가방/지갑,searchad_related,스노우피크,가방/지갑,스노우피크가방,9170,0,0.0,0,0,0.0,91.7,0,0,,0,searchad:스노우피크가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,49.3,product_discovered,스노우피크,가방/지갑,searchad_related,스노우피크,가방/지갑,스노우피크가방,9520,0,0.0,0,0,0.0,95.2,0,0,,0,searchad:스노우피크가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,49.0,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스러닝화,12670,0,0.0,0,0,0.0,126.7,0,0,사이즈반품,6,searchad:아식스러닝화,"fallback_input_after_error:Shopping API error 404: {
+관찰,49.0,product_discovered,아식스라이프워커,신발,searchad_related,아식스,신발,아식스러닝화,12680,0,0.0,0,0,0.0,126.8,0,0,사이즈반품,6,searchad:아식스러닝화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,48.7,product_discovered,크록스,패션잡화,searchad_related,크록스,패션잡화,크록스클래식클로그,8630,0,0.0,0,0,0.0,86.3,0,0,,0,searchad:크록스클래식클로그,"fallback_input_after_error:Shopping API error 404: {
+관찰,48.7,product_discovered,크록스,패션잡화,searchad_related,크록스,패션잡화,크록스클래식클로그,8760,0,0.0,0,0,0.0,87.6,0,0,,0,searchad:크록스클래식클로그,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,48.1,product_discovered,아레나,가방/지갑,searchad_related,아레나,가방/지갑,아레나수영가방,5790,0,0.0,0,0,0.0,57.9,0,0,,0,searchad:아레나수영가방,"fallback_input_after_error:Shopping API error 404: {
+관찰,48.0,product_discovered,파타고니아,가방/지갑,searchad_related,파타고니아,가방/지갑,파타고니아백팩,8520,0,0.0,0,0,0.0,85.2,0,0,,0,searchad:파타고니아백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,48.0,product_discovered,파타고니아,가방/지갑,searchad_related,파타고니아,가방/지갑,파타고니아백팩,8410,0,0.0,0,0,0.0,84.1,0,0,,0,searchad:파타고니아백팩,"fallback_input_after_error:Shopping API error 404: {
+관찰,47.8,product_discovered,아레나,가방/지갑,searchad_related,아레나,가방/지갑,아레나수영가방,5790,0,0.0,0,0,0.0,57.9,0,0,,0,searchad:아레나수영가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,47.8,product_discovered,아디다스,패션소품/의류,searchad_related,아디다스,패션소품/의류,아디다스반팔,11760,0,0.0,0,0,0.0,117.6,0,0,사이즈반품,6,searchad:아디다스반팔,"fallback_input_after_error:Shopping API error 404: {
+관찰,47.4,product_discovered,아디다스,패션소품/의류,searchad_related,아디다스,패션소품/의류,아디다스반팔,11920,0,0.0,0,0,0.0,119.2,0,0,사이즈반품,6,searchad:아디다스반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,46.9,product_discovered,노스페이스,신발,searchad_related,노스페이스,신발,노스페이스샌들,8220,0,0.0,0,0,0.0,82.2,0,0,사이즈반품,6,searchad:노스페이스샌들,"fallback_input_after_error:Shopping API error 404: {
+관찰,46.6,product_discovered,노스페이스,신발,searchad_related,노스페이스,신발,노스페이스샌들,8170,0,0.0,0,0,0.0,81.7,0,0,사이즈반품,6,searchad:노스페이스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,46.5,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁아리조나,10850,0,0.0,0,0,0.0,108.5,0,0,사이즈반품,6,searchad:버켄스탁아리조나,"fallback_input_after_error:Shopping API error 404: {
+관찰,46.5,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴숄더백,8040,0,0.0,0,0,0.0,80.4,0,0,,0,searchad:롱샴숄더백,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,46.1,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴숄더백,8030,0,0.0,0,0,0.0,80.3,0,0,,0,searchad:롱샴숄더백,"fallback_input_after_error:Shopping API error 404: {
+관찰,46.2,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁아리조나,10770,0,0.0,0,0,0.0,107.7,0,0,사이즈반품,6,searchad:버켄스탁아리조나,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,45.9,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머반바지,10290,0,0.0,0,0,0.0,102.9,0,0,사이즈반품,6,searchad:언더아머반바지,"fallback_input_after_error:Shopping API error 404: {
+관찰,45.9,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머반바지,10630,0,0.0,0,0,0.0,106.3,0,0,사이즈반품,6,searchad:언더아머반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,45.5,product_discovered,라코스테,신발,searchad_related,라코스테,신발,라코스테신발,10070,0,0.0,0,0,0.0,100.7,0,0,사이즈반품,6,searchad:라코스테신발,"fallback_input_after_error:Shopping API error 404: {
+관찰,45.8,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴크로스백,8010,0,0.0,0,0,0.0,80.1,0,0,,0,searchad:롱샴크로스백,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,45.3,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어원,7950,0,0.0,0,0,0.0,79.5,0,0,,0,searchad:헬리녹스체어원,"fallback_input_after_error:Shopping API error 404: {
+관찰,45.2,product_discovered,라코스테,신발,searchad_related,라코스테,신발,라코스테신발,10150,0,0.0,0,0,0.0,101.5,0,0,사이즈반품,6,searchad:라코스테신발,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-관찰,45.3,product_discovered,롱샴,가방/지갑,searchad_related,롱샴,가방/지갑,롱샴크로스백,7950,0,0.0,0,0,0.0,79.5,0,0,,0,searchad:롱샴크로스백,"fallback_input_after_error:Shopping API error 404: {
+관찰,45.2,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어원,7810,0,0.0,0,0,0.0,78.1,0,0,,0,searchad:헬리녹스체어원,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,44.5,product_discovered,룰루레몬,주방/생활,searchad_related,룰루레몬,주방/생활,룰루레몬텀블러,7230,0,0.0,0,0,0.0,72.3,0,0,,0,searchad:룰루레몬텀블러,"fallback_input_after_error:Shopping API error 404: {
+보류,44.5,product_discovered,룰루레몬,주방/생활,searchad_related,룰루레몬,주방/생활,룰루레몬텀블러,7350,0,0.0,0,0,0.0,73.5,0,0,,0,searchad:룰루레몬텀블러,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,43.9,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크반팔,9550,0,0.0,0,0,0.0,95.5,0,0,사이즈반품,6,searchad:스노우피크반팔,"fallback_input_after_error:Shopping API error 404: {
+보류,44.3,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크반팔,9760,0,0.0,0,0,0.0,97.6,0,0,사이즈반품,6,searchad:스노우피크반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,43.4,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드목걸이,11720,0,0.0,0,0,0.0,117.2,0,0,고가정품,10,searchad:비비안웨스트우드목걸이,"fallback_input_after_error:Shopping API error 404: {
+보류,43.4,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁샌들,6790,0,0.0,0,0,0.0,67.9,0,0,사이즈반품,6,searchad:버켄스탁샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,43.4,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁샌들,6900,0,0.0,0,0,0.0,69.0,0,0,사이즈반품,6,searchad:버켄스탁샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,43.1,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드목걸이,11910,0,0.0,0,0,0.0,119.1,0,0,고가정품,10,searchad:비비안웨스트우드목걸이,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,43.1,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스여성샌들,6570,0,0.0,0,0,0.0,65.7,0,0,사이즈반품,6,searchad:크록스여성샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,43.1,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스여성샌들,6500,0,0.0,0,0,0.0,65.0,0,0,사이즈반품,6,searchad:크록스여성샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,43.0,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아모자,8680,0,0.0,0,0,0.0,86.8,0,0,사이즈반품,6,searchad:파타고니아모자,"fallback_input_after_error:Shopping API error 404: {
+보류,43.0,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아모자,9000,0,0.0,0,0,0.0,90.0,0,0,사이즈반품,6,searchad:파타고니아모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,42.8,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬샌들,6090,0,0.0,0,0,0.0,60.9,0,0,사이즈반품,6,searchad:살로몬샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,43.0,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스크로스백,5940,0,0.0,0,0,0.0,59.4,0,0,,0,searchad:아크테릭스크로스백,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,42.7,product_discovered,헬리녹스,우산/양산,searchad_related,헬리녹스,우산/양산,헬리녹스우산,2880,0,0.0,0,0,0.0,28.8,0,0,,0,searchad:헬리녹스우산,"fallback_input_after_error:Shopping API error 404: {
+보류,42.8,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬샌들,6070,0,0.0,0,0,0.0,60.7,0,0,사이즈반품,6,searchad:살로몬샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,42.5,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라페이토샌들,5950,0,0.0,0,0,0.0,59.5,0,0,사이즈반품,6,searchad:휠라페이토샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,42.3,product_discovered,헬리녹스,우산/양산,searchad_related,헬리녹스,우산/양산,헬리녹스우산,2800,0,0.0,0,0,0.0,28.0,0,0,,0,searchad:헬리녹스우산,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,42.3,product_discovered,아크테릭스,가방/지갑,searchad_related,아크테릭스,가방/지갑,아크테릭스크로스백,5700,0,0.0,0,0,0.0,57.0,0,0,,0,searchad:아크테릭스크로스백,"fallback_input_after_error:Shopping API error 404: {
+보류,42.1,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라페이토샌들,5880,0,0.0,0,0,0.0,58.8,0,0,사이즈반품,6,searchad:휠라페이토샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,42.0,product_discovered,컨버스,패션잡화,searchad_related,컨버스,패션잡화,컨버스척70,5200,0,0.0,0,0,0.0,52.0,0,0,,0,searchad:컨버스척70,"fallback_input_after_error:Shopping API error 404: {
+보류,42.0,product_discovered,살로몬,가방/지갑,searchad_related,살로몬,가방/지갑,살로몬가방,5170,0,0.0,0,0,0.0,51.7,0,0,,0,searchad:살로몬가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,41.4,product_discovered,살로몬,가방/지갑,searchad_related,살로몬,가방/지갑,살로몬가방,5070,0,0.0,0,0,0.0,50.7,0,0,,0,searchad:살로몬가방,"fallback_input_after_error:Shopping API error 404: {
+보류,41.7,product_discovered,컨버스,패션잡화,searchad_related,컨버스,패션잡화,컨버스척70,5120,0,0.0,0,0,0.0,51.2,0,0,,0,searchad:컨버스척70,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,41.2,product_discovered,찰스앤키스,신발,searchad_related,찰스앤키스,신발,찰스앤키스샌들,5100,0,0.0,0,0,0.0,51.0,0,0,사이즈반품,6,searchad:찰스앤키스샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,41.4,product_discovered,유니클로,패션의류,searchad_related,유니클로,패션의류,유니클로선글라스,8410,0,0.0,0,0,0.0,84.1,0,0,사이즈반품,6,searchad:유니클로선글라스,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,41.1,product_discovered,유니클로,패션의류,searchad_related,유니클로,패션의류,유니클로선글라스,8180,0,0.0,0,0,0.0,81.8,0,0,사이즈반품,6,searchad:유니클로선글라스,"fallback_input_after_error:Shopping API error 404: {
+보류,41.1,product_discovered,크록스,패션잡화,searchad_related,크록스,패션잡화,크록스클래식,4900,0,0.0,0,0,0.0,49.0,0,0,,0,searchad:크록스클래식,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,40.8,product_discovered,어그,신발,searchad_related,어그,신발,어그슬리퍼,8160,0,0.0,0,0,0.0,81.6,0,0,사이즈반품,6,searchad:어그슬리퍼,"fallback_input_after_error:Shopping API error 404: {
+보류,40.9,product_discovered,찰스앤키스,신발,searchad_related,찰스앤키스,신발,찰스앤키스샌들,4990,0,0.0,0,0,0.0,49.9,0,0,사이즈반품,6,searchad:찰스앤키스샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,40.5,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스레인부츠,8110,0,0.0,0,0,0.0,81.1,0,0,사이즈반품,6,searchad:크록스레인부츠,"fallback_input_after_error:Shopping API error 404: {
+보류,40.8,product_discovered,어그,신발,searchad_related,어그,신발,어그슬리퍼,8110,0,0.0,0,0,0.0,81.1,0,0,사이즈반품,6,searchad:어그슬리퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,40.3,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드가방,9630,0,0.0,0,0,0.0,96.3,0,0,고가정품,10,searchad:비비안웨스트우드가방,"fallback_input_after_error:Shopping API error 404: {
+보류,39.9,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드가방,9650,0,0.0,0,0,0.0,96.5,0,0,고가정품,10,searchad:비비안웨스트우드가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,40.2,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스여성샌들,4610,0,0.0,0,0,0.0,46.1,0,0,사이즈반품,6,searchad:스케쳐스여성샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,39.9,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스여성샌들,4510,0,0.0,0,0,0.0,45.1,0,0,사이즈반품,6,searchad:스케쳐스여성샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,39.5,product_discovered,살로몬,등산화,searchad_related,살로몬,등산화,살로몬등산화,3900,0,0.0,0,0,0.0,39.0,0,0,,0,searchad:살로몬등산화,"fallback_input_after_error:Shopping API error 404: {
+보류,39.5,product_discovered,컨버스,신발,searchad_related,컨버스,신발,컨버스운동화,7880,0,0.0,0,0,0.0,78.8,0,0,사이즈반품,6,searchad:컨버스운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,39.1,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스테이블,3780,0,0.0,0,0,0.0,37.8,0,0,,0,searchad:헬리녹스테이블,"fallback_input_after_error:Shopping API error 404: {
+보류,39.5,product_discovered,살로몬,등산화,searchad_related,살로몬,등산화,살로몬등산화,3990,0,0.0,0,0,0.0,39.9,0,0,,0,searchad:살로몬등산화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,38.9,product_discovered,컨버스,신발,searchad_related,컨버스,신발,컨버스운동화,7940,0,0.0,0,0,0.0,79.4,0,0,사이즈반품,6,searchad:컨버스운동화,"fallback_input_after_error:Shopping API error 404: {
+보류,39.1,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스테이블,3800,0,0.0,0,0,0.0,38.0,0,0,,0,searchad:헬리녹스테이블,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,38.4,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드시계,8550,0,0.0,0,0,0.0,85.5,0,0,고가정품,10,searchad:비비안웨스트우드시계,"fallback_input_after_error:Shopping API error 404: {
+보류,38.9,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스레인부츠,7530,0,0.0,0,0,0.0,75.3,0,0,사이즈반품,6,searchad:크록스레인부츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,38.2,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스반바지,7050,0,0.0,0,0,0.0,70.5,0,0,사이즈반품,6,searchad:노스페이스반바지,"fallback_input_after_error:Shopping API error 404: {
+보류,38.4,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드선글라스,8650,0,0.0,0,0,0.0,86.5,0,0,고가정품,10,searchad:비비안웨스트우드선글라스,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,37.7,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드선글라스,8280,0,0.0,0,0,0.0,82.8,0,0,고가정품,10,searchad:비비안웨스트우드선글라스,"fallback_input_after_error:Shopping API error 404: {
+보류,38.2,product_discovered,노스페이스,패션소품/의류,searchad_related,노스페이스,패션소품/의류,노스페이스반바지,7250,0,0.0,0,0,0.0,72.5,0,0,사이즈반품,6,searchad:노스페이스반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,37.6,product_discovered,찰스앤키스,가방/지갑,searchad_related,찰스앤키스,가방/지갑,찰스앤키스지갑,3190,0,0.0,0,0,0.0,31.9,0,0,,0,searchad:찰스앤키스지갑,"fallback_input_after_error:Shopping API error 404: {
+보류,37.9,product_discovered,찰스앤키스,가방/지갑,searchad_related,찰스앤키스,가방/지갑,찰스앤키스지갑,3210,0,0.0,0,0,0.0,32.1,0,0,,0,searchad:찰스앤키스지갑,"fallback_input_after_error:Shopping API error 404: {
+        ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
+      ",,
+보류,37.7,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드시계,8450,0,0.0,0,0,0.0,84.5,0,0,고가정품,10,searchad:비비안웨스트우드시계,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
 보류,36.3,product_discovered,언더아머,가방/지갑,searchad_related,언더아머,가방/지갑,언더아머백팩,2790,0,0.0,0,0,0.0,27.9,0,0,,0,searchad:언더아머백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,35.8,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드지갑,7980,0,0.0,0,0,0.0,79.8,0,0,고가정품,10,searchad:비비안웨스트우드지갑,"fallback_input_after_error:Shopping API error 404: {
+보류,36.1,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드지갑,8030,0,0.0,0,0,0.0,80.3,0,0,고가정품,10,searchad:비비안웨스트우드지갑,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,35.3,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스선셋체어,2590,0,0.0,0,0,0.0,25.9,0,0,,0,searchad:헬리녹스선셋체어,"fallback_input_after_error:Shopping API error 404: {
+보류,35.3,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스선셋체어,2650,0,0.0,0,0,0.0,26.5,0,0,,0,searchad:헬리녹스선셋체어,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,35.1,product_discovered,크록스,신발,searchad_related,크록스,신발,크록스신발,4830,0,0.0,0,0,0.0,48.3,0,0,사이즈반품,6,searchad:크록스신발,"fallback_input_after_error:Shopping API error 404: {
+보류,34.7,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림반팔,4530,0,0.0,0,0,0.0,45.3,0,0,사이즈반품,6,searchad:슈프림반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,34.7,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어투,2460,0,0.0,0,0,0.0,24.6,0,0,,0,searchad:헬리녹스체어투,"fallback_input_after_error:Shopping API error 404: {
+보류,34.7,product_discovered,헬리녹스,캠핑/아웃도어소품,searchad_related,헬리녹스,캠핑/아웃도어소품,헬리녹스체어제로,2480,0,0.0,0,0,0.0,24.8,0,0,,0,searchad:헬리녹스체어제로,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,34.4,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림반팔,4520,0,0.0,0,0,0.0,45.2,0,0,사이즈반품,6,searchad:슈프림반팔,"fallback_input_after_error:Shopping API error 404: {
+보류,33.8,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬신발,4170,0,0.0,0,0,0.0,41.7,0,0,사이즈반품,6,searchad:살로몬신발,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,33.8,product_discovered,살로몬,신발,searchad_related,살로몬,신발,살로몬신발,4180,0,0.0,0,0,0.0,41.8,0,0,사이즈반품,6,searchad:살로몬신발,"fallback_input_after_error:Shopping API error 404: {
+보류,33.4,product_discovered,아크네스튜디오,가방/지갑,searchad_related,아크네스튜디오,가방/지갑,아크네스튜디오가방,2360,0,0.0,0,0,0.0,23.6,0,0,,0,searchad:아크네스튜디오가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,33.4,product_discovered,아크네스튜디오,가방/지갑,searchad_related,아크네스튜디오,가방/지갑,아크네스튜디오가방,2350,0,0.0,0,0,0.0,23.5,0,0,,0,searchad:아크네스튜디오가방,"fallback_input_after_error:Shopping API error 404: {
+보류,32.8,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테반바지,3490,0,0.0,0,0,0.0,34.9,0,0,사이즈반품,6,searchad:라코스테반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,32.8,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테반바지,3450,0,0.0,0,0,0.0,34.5,0,0,사이즈반품,6,searchad:라코스테반바지,"fallback_input_after_error:Shopping API error 404: {
+보류,32.5,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크반바지,3460,0,0.0,0,0,0.0,34.6,0,0,사이즈반품,6,searchad:스노우피크반바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,32.5,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스여성운동화,3360,0,0.0,0,0,0.0,33.6,0,0,사이즈반품,6,searchad:스케쳐스여성운동화,"fallback_input_after_error:Shopping API error 404: {
-        ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
-      ",,
-보류,32.2,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크반바지,3320,0,0.0,0,0,0.0,33.2,0,0,사이즈반품,6,searchad:스노우피크반바지,"fallback_input_after_error:Shopping API error 404: {
-        ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
-      ",,
-보류,31.9,product_discovered,라코스테,신발,searchad_related,라코스테,신발,라코스테스니커즈,3210,0,0.0,0,0,0.0,32.1,0,0,사이즈반품,6,searchad:라코스테스니커즈,"fallback_input_after_error:Shopping API error 404: {
+보류,32.2,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스여성운동화,3320,0,0.0,0,0,0.0,33.2,0,0,사이즈반품,6,searchad:스케쳐스여성운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
 보류,31.7,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁남자샌들,2210,0,0.0,0,0,0.0,22.1,0,0,사이즈반품,6,searchad:버켄스탁남자샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,31.2,product_discovered,스노우피크,캠핑/아웃도어소품,searchad_related,스노우피크,캠핑/아웃도어소품,스노우피크테이블,2070,0,0.0,0,0,0.0,20.7,0,0,,0,searchad:스노우피크테이블,"fallback_input_after_error:Shopping API error 404: {
+보류,31.6,product_discovered,라코스테,신발,searchad_related,라코스테,신발,라코스테스니커즈,3200,0,0.0,0,0,0.0,32.0,0,0,사이즈반품,6,searchad:라코스테스니커즈,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,30.9,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라슬리퍼,2830,0,0.0,0,0,0.0,28.3,0,0,사이즈반품,6,searchad:휠라슬리퍼,"fallback_input_after_error:Shopping API error 404: {
+보류,31.2,product_discovered,어그,신발,searchad_related,어그,신발,어그부츠,2850,0,0.0,0,0,0.0,28.5,0,0,사이즈반품,6,searchad:어그부츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,30.6,product_discovered,어그,신발,searchad_related,어그,신발,어그부츠,2810,0,0.0,0,0,0.0,28.1,0,0,사이즈반품,6,searchad:어그부츠,"fallback_input_after_error:Shopping API error 404: {
+보류,31.2,product_discovered,스노우피크,캠핑/아웃도어소품,searchad_related,스노우피크,캠핑/아웃도어소품,스노우피크테이블,2080,0,0.0,0,0,0.0,20.8,0,0,,0,searchad:스노우피크테이블,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,30.6,product_discovered,언더아머,가방/지갑,searchad_related,언더아머,가방/지갑,언더아머가방,2030,0,0.0,0,0,0.0,20.3,0,0,,0,searchad:언더아머가방,"fallback_input_after_error:Shopping API error 404: {
+보류,30.9,product_discovered,언더아머,가방/지갑,searchad_related,언더아머,가방/지갑,언더아머가방,2070,0,0.0,0,0,0.0,20.7,0,0,,0,searchad:언더아머가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,30.1,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드가디건,4340,0,0.0,0,0,0.0,43.4,0,0,고가정품,10,searchad:비비안웨스트우드가디건,"fallback_input_after_error:Shopping API error 404: {
+보류,30.8,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골모자,2800,0,0.0,0,0,0.0,28.0,0,0,사이즈반품,6,searchad:캉골모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,30.0,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테가디건,2760,0,0.0,0,0,0.0,27.6,0,0,사이즈반품,6,searchad:라코스테가디건,"fallback_input_after_error:Shopping API error 404: {
+보류,30.1,product_discovered,비비안웨스트우드,가방/지갑,searchad_related,비비안웨스트우드,가방/지갑,비비안웨스트우드가디건,4460,0,0.0,0,0,0.0,44.6,0,0,고가정품,10,searchad:비비안웨스트우드가디건,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,29.7,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골모자,2680,0,0.0,0,0,0.0,26.8,0,0,사이즈반품,6,searchad:캉골모자,"fallback_input_after_error:Shopping API error 404: {
+보류,30.0,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라슬리퍼,2750,0,0.0,0,0,0.0,27.5,0,0,사이즈반품,6,searchad:휠라슬리퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,29.0,product_discovered,반스,신발,searchad_related,반스,신발,반스로퍼,2490,0,0.0,0,0,0.0,24.9,0,0,사이즈반품,6,searchad:반스로퍼,"fallback_input_after_error:Shopping API error 404: {
+보류,29.7,product_discovered,라코스테,패션소품/의류,searchad_related,라코스테,패션소품/의류,라코스테가디건,2740,0,0.0,0,0,0.0,27.4,0,0,사이즈반품,6,searchad:라코스테가디건,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,29.0,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트T100,1740,0,0.0,0,0,0.0,17.4,0,0,,0,searchad:타이틀리스트T100,"fallback_input_after_error:Shopping API error 404: {
+보류,29.0,product_discovered,반스,신발,searchad_related,반스,신발,반스로퍼,2520,0,0.0,0,0,0.0,25.2,0,0,사이즈반품,6,searchad:반스로퍼,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,28.4,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크바지,2400,0,0.0,0,0,0.0,24.0,0,0,사이즈반품,6,searchad:스노우피크바지,"fallback_input_after_error:Shopping API error 404: {
+보류,28.4,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크바지,2430,0,0.0,0,0,0.0,24.3,0,0,사이즈반품,6,searchad:스노우피크바지,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,27.9,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스운동화여성,2370,0,0.0,0,0,0.0,23.7,0,0,사이즈반품,6,searchad:스케쳐스운동화여성,"fallback_input_after_error:Shopping API error 404: {
+보류,28.4,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트T100,1710,0,0.0,0,0,0.0,17.1,0,0,,0,searchad:타이틀리스트T100,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,27.9,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아티셔츠,2370,0,0.0,0,0,0.0,23.7,0,0,사이즈반품,6,searchad:파타고니아티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,28.1,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아티셔츠,2420,0,0.0,0,0,0.0,24.2,0,0,사이즈반품,6,searchad:파타고니아티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,27.5,product_discovered,아레나,패션소품/의류,searchad_related,아레나,패션소품/의류,아레나수영모자,1510,0,0.0,0,0,0.0,15.1,0,0,사이즈반품,6,searchad:아레나수영모자,"fallback_input_after_error:Shopping API error 404: {
+보류,27.7,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스운동화여성,2380,0,0.0,0,0,0.0,23.8,0,0,사이즈반품,6,searchad:스케쳐스운동화여성,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,27.2,product_discovered,컨버스,가방/지갑,searchad_related,컨버스,가방/지갑,컨버스백팩,1450,0,0.0,0,0,0.0,14.5,0,0,,0,searchad:컨버스백팩,"fallback_input_after_error:Shopping API error 404: {
+보류,27.5,product_discovered,아레나,패션소품/의류,searchad_related,아레나,패션소품/의류,아레나수영모자,1500,0,0.0,0,0,0.0,15.0,0,0,사이즈반품,6,searchad:아레나수영모자,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,27.1,product_discovered,반스,신발,searchad_related,반스,신발,반스하프캡,2330,0,0.0,0,0,0.0,23.3,0,0,사이즈반품,6,searchad:반스하프캡,"fallback_input_after_error:Shopping API error 404: {
+보류,27.2,product_discovered,컨버스,가방/지갑,searchad_related,컨버스,가방/지갑,컨버스백팩,1470,0,0.0,0,0,0.0,14.7,0,0,,0,searchad:컨버스백팩,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,26.8,product_discovered,아크네스튜디오,패션소품/의류,searchad_related,아크네스튜디오,패션소품/의류,아크네스튜디오반팔,2300,0,0.0,0,0,0.0,23.0,0,0,사이즈반품,6,searchad:아크네스튜디오반팔,"fallback_input_after_error:Shopping API error 404: {
+보류,27.1,product_discovered,반스,신발,searchad_related,반스,신발,반스하프캡,2340,0,0.0,0,0,0.0,23.4,0,0,사이즈반품,6,searchad:반스하프캡,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,26.5,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골반팔티,2220,0,0.0,0,0,0.0,22.2,0,0,사이즈반품,6,searchad:캉골반팔티,"fallback_input_after_error:Shopping API error 404: {
+보류,26.8,product_discovered,아크네스튜디오,패션소품/의류,searchad_related,아크네스튜디오,패션소품/의류,아크네스튜디오반팔,2320,0,0.0,0,0,0.0,23.2,0,0,사이즈반품,6,searchad:아크네스튜디오반팔,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,26.0,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트T200,1310,0,0.0,0,0,0.0,13.1,0,0,,0,searchad:타이틀리스트T200,"fallback_input_after_error:Shopping API error 404: {
+보류,26.5,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골반팔티,2280,0,0.0,0,0,0.0,22.8,0,0,사이즈반품,6,searchad:캉골반팔티,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,26.0,product_discovered,컨버스,가방/지갑,searchad_related,컨버스,가방/지갑,컨버스가방,1310,0,0.0,0,0,0.0,13.1,0,0,,0,searchad:컨버스가방,"fallback_input_after_error:Shopping API error 404: {
+보류,26.1,product_discovered,컨버스,가방/지갑,searchad_related,컨버스,가방/지갑,컨버스가방,1320,0,0.0,0,0,0.0,13.2,0,0,,0,searchad:컨버스가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,25.8,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스키즈운동화,2130,0,0.0,0,0,0.0,21.3,0,0,사이즈반품,6,searchad:스케쳐스키즈운동화,"fallback_input_after_error:Shopping API error 404: {
+보류,25.8,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림티셔츠,2140,0,0.0,0,0,0.0,21.4,0,0,사이즈반품,6,searchad:슈프림티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,25.5,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림티셔츠,2120,0,0.0,0,0,0.0,21.2,0,0,사이즈반품,6,searchad:슈프림티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,25.7,product_discovered,아레나,가방/지갑,searchad_related,아레나,가방/지갑,아레나가방,1300,0,0.0,0,0,0.0,13.0,0,0,,0,searchad:아레나가방,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,25.2,product_discovered,컨버스,패션잡화,searchad_related,컨버스,패션잡화,컨버스척테일러70,1280,0,0.0,0,0,0.0,12.8,0,0,,0,searchad:컨버스척테일러70,"fallback_input_after_error:Shopping API error 404: {
+보류,25.5,product_discovered,스케쳐스,신발,searchad_related,스케쳐스,신발,스케쳐스키즈운동화,2110,0,0.0,0,0,0.0,21.1,0,0,사이즈반품,6,searchad:스케쳐스키즈운동화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,24.9,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머양말,2040,0,0.0,0,0,0.0,20.4,0,0,사이즈반품,6,searchad:언더아머양말,"fallback_input_after_error:Shopping API error 404: {
+보류,25.2,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트T200,1280,0,0.0,0,0,0.0,12.8,0,0,,0,searchad:타이틀리스트T200,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,24.9,product_discovered,아레나,가방/지갑,searchad_related,아레나,가방/지갑,아레나가방,1250,0,0.0,0,0,0.0,12.5,0,0,,0,searchad:아레나가방,"fallback_input_after_error:Shopping API error 404: {
+보류,24.9,product_discovered,컨버스,패션잡화,searchad_related,컨버스,패션잡화,컨버스척테일러70,1260,0,0.0,0,0,0.0,12.6,0,0,,0,searchad:컨버스척테일러70,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,24.3,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크티셔츠,1870,0,0.0,0,0,0.0,18.7,0,0,사이즈반품,6,searchad:스노우피크티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,24.6,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머양말,2060,0,0.0,0,0,0.0,20.6,0,0,사이즈반품,6,searchad:언더아머양말,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,24.0,product_discovered,컨버스,신발,searchad_related,컨버스,신발,아키클래식그라나다샌들,1220,0,0.0,0,0,0.0,12.2,0,0,사이즈반품,6,searchad:아키클래식그라나다샌들,"fallback_input_after_error:Shopping API error 404: {
+보류,24.3,product_discovered,스노우피크,패션소품/의류,searchad_related,스노우피크,패션소품/의류,스노우피크티셔츠,1860,0,0.0,0,0,0.0,18.6,0,0,사이즈반품,6,searchad:스노우피크티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,23.9,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림캠프캡,1800,0,0.0,0,0,0.0,18.0,0,0,사이즈반품,6,searchad:슈프림캠프캡,"fallback_input_after_error:Shopping API error 404: {
+보류,24.0,product_discovered,컨버스,신발,searchad_related,컨버스,신발,아키클래식그라나다샌들,1200,0,0.0,0,0,0.0,12.0,0,0,사이즈반품,6,searchad:아키클래식그라나다샌들,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,23.6,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골티셔츠,1780,0,0.0,0,0,0.0,17.8,0,0,사이즈반품,6,searchad:캉골티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,23.9,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림후드집업,1830,0,0.0,0,0,0.0,18.3,0,0,사이즈반품,6,searchad:슈프림후드집업,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,23.3,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림후드집업,1750,0,0.0,0,0,0.0,17.5,0,0,사이즈반품,6,searchad:슈프림후드집업,"fallback_input_after_error:Shopping API error 404: {
+보류,23.6,product_discovered,캉골,패션소품/의류,searchad_related,캉골,패션소품/의류,캉골티셔츠,1820,0,0.0,0,0,0.0,18.2,0,0,사이즈반품,6,searchad:캉골티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,23.3,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트골프공PROV1,1100,0,0.0,0,0,0.0,11.0,0,0,,0,searchad:타이틀리스트골프공PROV1,"fallback_input_after_error:Shopping API error 404: {
+보류,23.3,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림캠프캡,1800,0,0.0,0,0,0.0,18.0,0,0,사이즈반품,6,searchad:슈프림캠프캡,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,22.7,product_discovered,언더아머,신발,searchad_related,언더아머,신발,언더아머러닝화,1730,0,0.0,0,0,0.0,17.3,0,0,사이즈반품,6,searchad:언더아머러닝화,"fallback_input_after_error:Shopping API error 404: {
+보류,23.3,product_discovered,타이틀리스트,골프,searchad_related,타이틀리스트,골프,타이틀리스트골프공PROV1,1080,0,0.0,0,0,0.0,10.8,0,0,,0,searchad:타이틀리스트골프공PROV1,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,22.4,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁보스턴타우페,1720,0,0.0,0,0,0.0,17.2,0,0,사이즈반품,6,searchad:버켄스탁보스턴타우페,"fallback_input_after_error:Shopping API error 404: {
+보류,23.0,product_discovered,언더아머,신발,searchad_related,언더아머,신발,언더아머러닝화,1760,0,0.0,0,0,0.0,17.6,0,0,사이즈반품,6,searchad:언더아머러닝화,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,21.7,product_discovered,반스,신발,searchad_related,반스,신발,반스신발,1470,0,0.0,0,0,0.0,14.7,0,0,사이즈반품,6,searchad:반스신발,"fallback_input_after_error:Shopping API error 404: {
+보류,22.7,product_discovered,버켄스탁보스턴,신발,searchad_related,버켄스탁,신발,버켄스탁보스턴타우페,1730,0,0.0,0,0,0.0,17.3,0,0,사이즈반품,6,searchad:버켄스탁보스턴타우페,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,21.2,product_discovered,어그,신발,searchad_related,어그,신발,어그타스만,1450,0,0.0,0,0,0.0,14.5,0,0,사이즈반품,6,searchad:어그타스만,"fallback_input_after_error:Shopping API error 404: {
+보류,21.7,product_discovered,어그,신발,searchad_related,어그,신발,어그타스만,1490,0,0.0,0,0,0.0,14.9,0,0,사이즈반품,6,searchad:어그타스만,"fallback_input_after_error:Shopping API error 404: {
+        ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
+      ",,
+보류,21.2,product_discovered,반스,신발,searchad_related,반스,신발,반스신발,1470,0,0.0,0,0,0.0,14.7,0,0,사이즈반품,6,searchad:반스신발,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
 보류,20.8,product_discovered,반스,신발,searchad_related,반스,신발,반스올드스쿨블랙,1400,0,0.0,0,0,0.0,14.0,0,0,사이즈반품,6,searchad:반스올드스쿨블랙,"fallback_input_after_error:Shopping API error 404: {
@@ -428,16 +428,16 @@
 보류,20.4,product_discovered,파타고니아,패션소품/의류,searchad_related,파타고니아,패션소품/의류,파타고니아반팔티,1350,0,0.0,0,0,0.0,13.5,0,0,사이즈반품,6,searchad:파타고니아반팔티,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,19.5,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머티셔츠,1300,0,0.0,0,0,0.0,13.0,0,0,사이즈반품,6,searchad:언더아머티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,19.7,product_discovered,언더아머,패션소품/의류,searchad_related,언더아머,패션소품/의류,언더아머티셔츠,1300,0,0.0,0,0,0.0,13.0,0,0,사이즈반품,6,searchad:언더아머티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,18.2,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라티셔츠,1140,0,0.0,0,0,0.0,11.4,0,0,사이즈반품,6,searchad:휠라티셔츠,"fallback_input_after_error:Shopping API error 404: {
+보류,18.2,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라티셔츠,1150,0,0.0,0,0,0.0,11.5,0,0,사이즈반품,6,searchad:휠라티셔츠,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,17.9,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라신발,1130,0,0.0,0,0,0.0,11.3,0,0,사이즈반품,6,searchad:휠라신발,"fallback_input_after_error:Shopping API error 404: {
+보류,17.7,product_discovered,휠라인터런,신발,searchad_related,휠라,신발,휠라신발,1110,0,0.0,0,0,0.0,11.1,0,0,사이즈반품,6,searchad:휠라신발,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
-보류,17.6,product_discovered,반스,신발,searchad_related,반스,신발,반스스니커즈,1110,0,0.0,0,0,0.0,11.1,0,0,사이즈반품,6,searchad:반스스니커즈,"fallback_input_after_error:Shopping API error 404: {
+보류,17.7,product_discovered,반스,신발,searchad_related,반스,신발,반스스니커즈,1110,0,0.0,0,0,0.0,11.1,0,0,사이즈반품,6,searchad:반스스니커즈,"fallback_input_after_error:Shopping API error 404: {
         ""errorMessage"": ""Invalid search api (존재하지 않는 검색 api 입니다.)"",
       ",,
 보류,17.0,product_discovered,슈프림,패션소품/의류,searchad_related,슈프림,패션소품/의류,슈프림후드티,1030,0,0.0,0,0,0.0,10.3,0,0,사이즈반품,6,searchad:슈프림후드티,"fallback_input_after_error:Shopping API error 404: {
