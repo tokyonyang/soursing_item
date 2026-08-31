@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-08-24T01:17:51",
+  "updated_at": "2026-08-31T03:39:22",
   "source_files": {
-    "sourcing_rank": "reports/sourcing_rank_20260824.xlsx",
-    "product_keywords": "reports/product_keywords_20260824.csv",
+    "sourcing_rank": "reports/sourcing_rank_20260831.xlsx",
+    "product_keywords": "reports/product_keywords_20260831.csv",
     "discovered_keywords": null,
-    "history": "reports/history_20260824.csv"
+    "history": "reports/history_20260831.csv"
   },
   "copied": {
     "latest_sourcing_rank.xlsx": true,
